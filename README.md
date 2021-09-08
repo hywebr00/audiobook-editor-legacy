@@ -1,12 +1,14 @@
-AE-Hyweb
+AEditor
+
 Goal & Our Promise
-AE-Hyweb is demostrating the fundamental user interface and editing functionality that a W3C-spec comformant audiobook editor should provide. This project is free and public to all the world under GNU license. Welcome to join this project and make your own audiobooks by using this editor.
+
+AEditor is demostrating the fundamental user interface and editing functionality that a W3C-spec comformant audiobook editor should provide. This project is free and public to all the world. Welcome to join this project and make your own audiobooks by using this editor.
 
 Development Environments
-Developed on Windows 10 x64 under Anaconda with Python 3.7.9. Sure thing, you don't need Anaconda. Instead, PyQt5 and a few 3rd party packages are enough. Python 3.7+ should be sufficient to run this program.
+Developed on Windows 10 x64 under Anaconda with Python 3.7.9. Sure thing, you don't need Anaconda. Instead, PySide2 and a few 3rd party packages are enough. Python 3.7+ should be sufficient to run this program.
 
 Packages & Modules Used
-backports.tempfile, beautifulsoup4, html5lib, jsonschema, multipledispatch, mutagen, pyinstaller, PyQt5, Python, Qt5, regex, requests, urllib3
+backports.tempfile, beautifulsoup4, html5lib, jsonschema, multipledispatch, tinytag, pyinstaller, PySide2, Python, regex, requests, urllib3
 
 Make Release Package & Make Installer
 Windows
