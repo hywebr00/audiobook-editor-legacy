@@ -1,0 +1,44 @@
+<RCC>
+  <qresource prefix="SVG">
+    <file>svg/icon/attach-panel-browse.svg</file>
+    <file>svg/icon/attach-panel-close.svg</file>
+    <file>svg/icon/AudiobookEditorLogo@16.svg</file>	
+    <file>svg/icon/common-add.svg</file>
+    <file>svg/icon/common-chevron-down.svg</file>
+    <file>svg/icon/common-drag.svg</file>
+    <file>svg/icon/common-remove.svg</file>
+    <file>svg/icon/common-text-field-required.svg</file>
+    <file>svg/icon/cover-icon.svg</file>
+    <file>svg/icon/cover-preview-empty.svg</file>
+    <file>svg/icon/create-project-banner.svg</file>
+    <file>svg/icon/ftu-add-reading-order-arrow.svg</file>
+    <file>svg/icon/ftu-background-pattern.svg</file>
+    <file>svg/icon/loading-banner.svg</file>
+    <file>svg/icon/metadata-date-picker.svg</file>	
+    <file>svg/icon/reading-order-add-to-list.svg</file>
+    <file>svg/icon/reading-order-icon.svg</file>
+    <file>svg/icon/reading-order-pause.svg</file>
+    <file>svg/icon/reading-order-play.svg</file>
+    <file>svg/icon/reading-order-stop.svg</file>
+    <file>svg/icon/resource-audio.svg</file>
+    <file>svg/icon/resource-document.svg</file>
+    <file>svg/icon/resource-icon.svg</file>
+    <file>svg/icon/resource-image.svg</file>
+    <file>svg/icon/resource-pdf.svg</file>
+    <file>svg/icon/starting-panel-close.svg</file>	
+    <file>svg/icon/time-picker-arrow-down.svg</file>
+    <file>svg/icon/time-picker-arrow-up.svg</file>	
+    <file>svg/icon/toc-reading-order.svg</file>
+    <file>svg/icon/toc-resource.svg</file>
+    <file>svg/icon/toc-start-time.svg</file>
+    <file>svg/icon/toolbar-about.svg</file>
+    <file>svg/icon/toolbar-package.svg</file>
+    <file>svg/icon/toolbar-preview.svg</file>
+    <file>svg/icon/toolbar-validate.svg</file>
+    <file>svg/icon/welcome-file.svg</file>	
+    <file>svg/icon/welcome-folder.svg</file>
+    <file>svg/icon/welcome-new.svg</file>
+    <file>svg/icon/welcome-recent-cover.svg</file>
+    <file>svg/icon/welcome-recent-folder.svg</file>
+  </qresource>  
+</RCC>

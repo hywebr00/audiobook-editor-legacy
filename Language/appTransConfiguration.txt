@@ -1,0 +1,53 @@
+REM				pylupdate5 -noobsolete appTransConfiguration.txt
+
+TRANSLATIONS	=	appLang_TC.ts \
+					appLang_EN.ts
+					
+SOURCES 		+=	../main.py \
+					../alert.py \
+					../attachfromwidgetwithouturl.py \
+					../book.py \
+					../coverpreviewwidget.py \
+					../createnewwizard.py \
+					../loadingwidget.py \
+					../mainwindow.py \
+					../metadatawidget.py \
+					../openedlist.py \
+					../pyqt5license.py \
+					../readingorderitem.py \
+					../readingorderwidget.py \
+					../startingpanelwithopenedlist.py \
+					../supplementallistwidgetitem.py \
+					../supplementallistwidgettitlebar.py \
+					../supplementallistwidgetwithwidgets.py \
+					../toclistwidget.py \
+					../toclistwidgetitem.py \
+					../translucent.py \
+					../validator.py \
+					../validator_wrapper.py
+					
+FORMS			=	../Alert.ui \
+					../AlertWithButtons.ui \
+					../AttachFromWidgetWithoutURL.ui \
+					../CoverPreviewWidget.ui \
+					../CreateNewWizard.ui \
+					../LoadingWidget.ui \
+					../MainWindow.ui \
+					../MetadataWidget.ui \
+					../OpenedList.ui \
+					../OpenedListItem.ui \
+					../PyQt5License.ui \
+					../ReadingOrderItem.ui \
+					../ReadingOrderWidget.ui \
+					../StartingPanel.ui \
+					../StartingPanelWithOpenedList.ui \
+					../SupplementalListWidgetItem.ui \
+					../SupplementalListWidgetTitleBar.ui \
+					../SupplementalListWidgetWithWidgets.ui \
+					../TOCListWidget.ui \
+					../TOCListWidgetItem.ui
+
+
+					
+					
+					

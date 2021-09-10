@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreateNewWizard</class>
+ <widget class="QWidget" name="CreateNewWizard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>382</width>
+    <height>453</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Create Wizard</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* starting panel */
+
+
+position: relative;
+width: 380px;
+height: 446px;
+
+background: #333333;</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>380</width>
+     <height>48</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/SVG/svg/icon/create-project-banner.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>24</x>
+     <y>67</y>
+     <width>332</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+     <stylestrategy>PreferDefault</stylestrategy>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string notr="true"/>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/*
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 22px;
+*/
+
+
+
+color: #FFFFFF;</string>
+   </property>
+   <property name="text">
+    <string>Create a new audiobook</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>38</x>
+     <y>111</y>
+     <width>49</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: static;
+width: 49px;
+height: 16px;
+left: 2px;
+top: calc(50% - 16px/2);
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+/* cell/label */
+
+color: rgba(255, 255, 255, 0.7);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>File Path</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>38</x>
+     <y>165</y>
+     <width>56</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: static;
+width: 56px;
+height: 16px;
+left: 2px;
+top: calc(50% - 16px/2);
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+/* cell/label */
+
+color: rgba(255, 255, 255, 0.7);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Book Title</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>38</x>
+     <y>221</y>
+     <width>40</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: static;
+width: 40px;
+left: 2px;
+top: 2px;
+bottom: 2px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+/* cell/label */
+
+color: rgba(255, 255, 255, 0.7);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Author</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>38</x>
+     <y>275</y>
+     <width>46</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: static;
+width: 46px;
+left: 2px;
+top: 2px;
+bottom: 2px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+/* cell/label */
+
+color: rgba(255, 255, 255, 0.7);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Read By</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>38</x>
+     <y>329</y>
+     <width>54</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: static;
+width: 54px;
+left: 2px;
+top: 2px;
+bottom: 2px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+/* cell/label */
+
+color: rgba(255, 255, 255, 0.7);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Publisher</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_BookPath">
+   <property name="geometry">
+    <rect>
+     <x>36</x>
+     <y>131</y>
+     <width>226</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 8 */
+
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+/* cell/text input background */
+
+background: rgba(0, 0, 0, 0.2);
+border: 1px solid rgba(0, 0, 0, 0.05);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* Browse */
+
+
+position: static;
+width: 45px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_BookTitle">
+   <property name="geometry">
+    <rect>
+     <x>36</x>
+     <y>185</y>
+     <width>308</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 8 */
+
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+/* cell/text input background */
+
+background: rgba(0, 0, 0, 0.2);
+border: 1px solid rgba(0, 0, 0, 0.05);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* Browse */
+
+
+position: static;
+width: 45px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Author">
+   <property name="geometry">
+    <rect>
+     <x>36</x>
+     <y>239</y>
+     <width>308</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 8 */
+
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+/* cell/text input background */
+
+background: rgba(0, 0, 0, 0.2);
+border: 1px solid rgba(0, 0, 0, 0.05);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* Browse */
+
+
+position: static;
+width: 45px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_ReadBy">
+   <property name="geometry">
+    <rect>
+     <x>36</x>
+     <y>293</y>
+     <width>308</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 8 */
+
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+/* cell/text input background */
+
+background: rgba(0, 0, 0, 0.2);
+border: 1px solid rgba(0, 0, 0, 0.05);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* Browse */
+
+
+position: static;
+width: 45px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Publisher">
+   <property name="geometry">
+    <rect>
+     <x>36</x>
+     <y>347</y>
+     <width>308</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 8 */
+
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+/* cell/text input background */
+
+background: rgba(0, 0, 0, 0.2);
+border: 1px solid rgba(0, 0, 0, 0.05);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* Browse */
+
+
+position: static;
+width: 45px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Create">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>398</y>
+     <width>64</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: absolute;
+width: 69px;
+height: 28px;
+left: 274px;
+top: 23px;
+
+border: 1px solid rgba(255, 255, 255, 0.4);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* Create */
+
+
+position: static;
+width: 40px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+</string>
+   </property>
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Cancel">
+   <property name="geometry">
+    <rect>
+     <x>207</x>
+     <y>398</y>
+     <width>65</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: absolute;
+height: 28px;
+left: 207px;
+right: 108px;
+top: 20px;
+
+border: 1px solid rgba(255, 255, 255, 0.4);
+box-sizing: border-box;
+border-radius: 6px;
+
+
+
+/* Cancel */
+
+
+position: static;
+width: 41px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Browse">
+   <property name="geometry">
+    <rect>
+     <x>274</x>
+     <y>131</y>
+     <width>69</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: absolute;
+width: 69px;
+height: 28px;
+left: 274px;
+top: 23px;
+
+border: 1px solid rgba(255, 255, 255, 0.4);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* Browse */
+
+
+position: static;
+width: 45px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Browse</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>91</x>
+     <y>111</y>
+     <width>7</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/SVG/svg/icon/common-text-field-required.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>98</x>
+     <y>165</y>
+     <width>7</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/SVG/svg/icon/common-text-field-required.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

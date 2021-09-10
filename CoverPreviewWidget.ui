@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CoverPreviewWidget</class>
+ <widget class="QWidget" name="CoverPreviewWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>256</width>
+    <height>216</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>256</width>
+    <height>216</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>256</width>
+    <height>216</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Cover Preview Widget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* cover preview */
+
+
+position: absolute;
+width: 240px;
+height: 216px;
+left: 89px;
+top: 127px;
+
+background: #404040;</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>7</x>
+     <y>9</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* icon/cover-icon */
+
+/*
+position: absolute;
+width: 18px;
+height: 18px;
+left: 3px;
+top: 3px;
+*/
+background: rgba(255, 255, 255, 0.0001);
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/SVG/svg/icon/cover-icon.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>28</x>
+     <y>6</y>
+     <width>113</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: absolute;
+width: 113px;
+left: 28px;
+top: 6px;
+bottom: 6px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+/* panel/section title */
+
+color: rgba(255, 255, 255, 0.5);
+background: rgba(255, 255, 255, 0.0001);</string>
+   </property>
+   <property name="text">
+    <string>Cover Preview</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Cover">
+   <property name="geometry">
+    <rect>
+     <x>68</x>
+     <y>40</y>
+     <width>120</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>120</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans Adlam</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Frame 53 */
+
+/*
+position: absolute;
+width: 120px;
+height: 120px;
+left: 149px;
+top: 167px;
+*/
+background: rgba(255, 113, 224, 0.4);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/SVG/svg/icon/cover-preview-empty.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::NoTextInteraction</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_AddCover">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>85</x>
+     <y>174</y>
+     <width>87</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* common/button */
+
+/* button/border */
+
+border: 1px solid rgba(255, 255, 255, 0.4);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* Browse */
+
+position: static;
+width: 63px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+</string>
+   </property>
+   <property name="text">
+    <string>Add Cover</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Remove">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>51</x>
+     <y>174</y>
+     <width>74</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+
+position: absolute;
+height: 28px;
+left: 17.71%;
+right: 51.46%;
+top: 0px;
+
+/* button/border */
+
+border: 1px solid rgba(255, 255, 255, 0.4);
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Remove */
+
+
+position: static;
+width: 50px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+
+QToolTip {
+	border:0px;
+	background: #404040;
+}</string>
+   </property>
+   <property name="text">
+    <string>Remove</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">buttonGroup_RemoveReplace</string>
+   </attribute>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Replace">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>133</x>
+     <y>174</y>
+     <width>72</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+
+position: absolute;
+height: 28px;
+left: 51.88%;
+right: 18.12%;
+top: 0px;
+
+/* button/border */
+
+border: 1px solid rgba(255, 255, 255, 0.4);
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Replace */
+
+
+position: static;
+width: 48px;
+height: 18px;
+left: 12px;
+top: 5px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* button/label */
+
+color: rgba(255, 255, 255, 0.9);
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+
+QToolTip {
+	border:0px;
+	background: #404040;
+}</string>
+   </property>
+   <property name="text">
+    <string>Replace</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">buttonGroup_RemoveReplace</string>
+   </attribute>
+  </widget>
+  <zorder>pushButton_Replace</zorder>
+  <zorder>pushButton_Remove</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_Cover</zorder>
+  <zorder>pushButton_AddCover</zorder>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup_RemoveReplace"/>
+ </buttongroups>
+</ui>

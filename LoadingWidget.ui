@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoadingWidget</class>
+ <widget class="QWidget" name="LoadingWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Loading</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* loading */
+
+
+position: relative;
+width: 640px;
+height: 480px;
+
+background: #333333;</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>640</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/SVG/svg/icon/loading-banner.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>48</x>
+     <y>193</y>
+     <width>544</width>
+     <height>38</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: static;
+width: 544px;
+height: 38px;
+left: 48px;
+top: 13px;
+
+font-family: Noto Sans TC;
+font-style: normal; 
+font-weight: bold;
+font-size: 28px;
+line-height: 38px;
+
+color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 1;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Audiobook Editor</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>48</x>
+     <y>252</y>
+     <width>472</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>37</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* https://github.com/dpublishing/audiobooks-samples/blob/main/case1/publication.json */
+
+
+position: static;
+width: 472px;
+height: 16px;
+left: 48px;
+top: 8px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 16px;
+
+color: #69ADFD;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Loading......</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>259</x>
+     <y>445</y>
+     <width>122</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: static;
+width: 122px;
+height: 18px;
+left: 259px;
+top: 17px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(255, 255, 255, 0.4);
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Powered by HyRead</string>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>290</y>
+     <width>485</width>
+     <height>8</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+   <property name="textVisible">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Progress">
+   <property name="geometry">
+    <rect>
+     <x>547</x>
+     <y>287</y>
+     <width>24</width>
+     <height>14</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Helvetica</family>
+     <pointsize>-1</pointsize>
+     <weight>37</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: absolute;
+width: 24px;
+height: 14px;
+left: 0px;
+top: calc(50% - 14px/2);
+
+font-family: Helvetica;
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+
+
+color: #FFFFFF;</string>
+   </property>
+   <property name="text">
+    <string>24%</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

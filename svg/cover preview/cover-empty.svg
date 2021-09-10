@@ -1,0 +1,18 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="120" height="120" rx="3" fill="#404040"/>
+<rect x="0.5" y="0.5" width="119" height="119" rx="5.5" stroke="white" stroke-opacity="0.5" stroke-linecap="square" stroke-linejoin="round" stroke-dasharray="6 8 6 8"/>
+<rect x="33.9259" y="34.5027" width="51.5074" height="51.5074" rx="3.6" stroke="#9F9F9F" stroke-width="0.8"/>
+<path d="M85.3972 70.282L71.8845 62.4359L59.6794 68.1025L43.5513 55.0256L33.9616 62.4359" stroke="#9F9F9F" stroke-width="0.6"/>
+<circle cx="71.1409" cy="47.9231" r="5.80253" stroke="#9F9F9F" stroke-width="0.6"/>
+<circle cx="69.5" cy="49.5" r="5.5" fill="#141414" style="mix-blend-mode:screen"/>
+<g clip-path="url(#clip0)">
+<rect x="33.9259" y="34.5028" width="51.5074" height="51.5074" rx="3.6" stroke="#9F9F9F" stroke-width="0.8"/>
+<path d="M42.9713 60.573L29.8962 69.4303V88.4102H83.4618L42.9713 60.573Z" fill="#151515" style="mix-blend-mode:screen"/>
+<path d="M85.4874 72.9927L74.0995 66.2443L31.9219 87.7548H85.4874V72.9927Z" fill="#151515" style="mix-blend-mode:screen"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect x="33.5259" y="34.1028" width="52.3074" height="52.3074" rx="5" fill="white"/>
+</clipPath>
+</defs>
+</svg>

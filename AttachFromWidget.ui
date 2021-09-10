@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AttachFromWidget</class>
+ <widget class="QWidget" name="AttachFromWidget">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>242</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>320</width>
+    <height>242</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>320</width>
+    <height>242</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Noto Sans</family>
+    <pointsize>14</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #474747;
+box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.28);
+border-radius: 6px;</string>
+  </property>
+  <widget class="QLabel" name="label_AttachFrom">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>9</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>81</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>81</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+position: absolute;
+width: 81px;
+height: 16px;
+left: 14px;
+top: calc(50% - 16px/2);
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+/* panel/section title */
+
+color: rgba(255, 255, 255, 0.5);</string>
+   </property>
+   <property name="text">
+    <string>Attach from...</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Add">
+   <property name="geometry">
+    <rect>
+     <x>262</x>
+     <y>44</y>
+     <width>41</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>41</width>
+     <height>19</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>41</width>
+     <height>19</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>62</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+/* cell/text input background */
+
+background: rgba(0, 0, 0, 0.2);
+border-radius: 6px;
+
+/* Add */
+
+
+position: static;
+height: 18px;
+left: 8px;
+right: 8px;
+top: calc(50% - 18px/2);
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+/*text-align: right;*/
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Or">
+   <property name="geometry">
+    <rect>
+     <x>153</x>
+     <y>74</y>
+     <width>22</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>or</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame_LocalFile">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>100</y>
+     <width>288</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>288</width>
+     <height>64</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>288</width>
+     <height>64</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Frame 28 */
+
+
+position: static;
+width: 288px;
+height: 64px;
+left: calc(50% - 288px/2);
+top: 8px;
+
+border: 1px dashed rgba(255, 255, 255, 0.4);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+margin: 0px 0px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="pushButton_BrowseLocalFile">
+    <property name="geometry">
+     <rect>
+      <x>84</x>
+      <y>25</y>
+      <width>14</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>14</width>
+      <height>14</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Sans</family>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* common/button */
+
+
+/* Auto Layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+
+position: absolute;
+width: 145px;
+height: 26px;
+left: calc(50% - 145px/2 + 0.5px);
+top: calc(50% - 26px/2);
+
+border-radius: 6px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/SVG/svg/icon/common-add.svg</normaloff>:/SVG/svg/icon/common-add.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>14</width>
+      <height>14</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_BrowseLocalFile">
+    <property name="geometry">
+     <rect>
+      <x>104</x>
+      <y>23</y>
+      <width>162</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>126</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>268</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Sans TC</family>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">display: flex;
+align-items: center;
+text-align: center;
+
+color: #5AB0FF;
+
+
+margin: 0px 0px;</string>
+    </property>
+    <property name="text">
+     <string>Browse local file</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Create">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>202</y>
+     <width>288</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/*background: #3095F2;*/
+/*border: 1px solid rgba(255, 255, 255, 0.12);
+box-sizing: border-box;
+border-radius: 5px;
+margin: 0px 0px;*/
+
+QPushButton:disabled {
+border: 1px solid rgba(255, 255, 255, 0.12);
+box-sizing: border-box;
+border-radius: 5px;
+margin: 0px 0px;
+
+}
+
+
+QPushButton:enabled {
+background: #3095F2;
+
+border: 1px solid rgba(255, 255, 255, 0.12);
+box-sizing: border-box;
+border-radius: 5px;
+margin: 0px 0px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_URL">
+   <property name="geometry">
+    <rect>
+     <x>24</x>
+     <y>44</y>
+     <width>230</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>230</width>
+     <height>19</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>230</width>
+     <height>19</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 8 */
+
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+/* cell/text input background */
+
+background: rgba(0, 0, 0, 0.2);
+border: 1px solid rgba(0, 0, 0, 0.05);
+box-sizing: border-box;
+border-radius: 6px;
+
+/* https:// */
+
+
+position: absolute;
+width: 230px;
+height: 19px;
+left: 8px;
+top: calc(50% - 19px/2 - 0.5px);
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 19px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+
+/* cell/text */
+
+color: #FFFFFF;</string>
+   </property>
+   <property name="text">
+    <string>http://</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_ErrorMessage">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>175</y>
+     <width>288</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+position: static;
+width: 87px;
+height: 16px;
+left: 16px;
+top: 3px;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+color: #E77465;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;</string>
+   </property>
+   <property name="text">
+    <string>Error message.</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
