@@ -626,7 +626,7 @@ class Ui_CreateNewWizard(object):
     # setupUi
 
     def retranslateUi(self, CreateNewWizard):
-        CreateNewWizard.setWindowTitle(QCoreApplication.translate("CreateNewWizard", u"Create Wizard", None))
+        CreateNewWizard.setWindowTitle(QCoreApplication.translate("CreateNewWizard", u"Audiobook Editor", None))
         self.label.setText("")
         self.label_2.setText(QCoreApplication.translate("CreateNewWizard", u"Create a new audiobook", None))
         self.label_3.setText(QCoreApplication.translate("CreateNewWizard", u"File Path", None))
