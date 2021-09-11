@@ -17,10 +17,10 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Create Wizard</string>
+   <string>Audiobook Editor</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset>
     <normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</iconset>
   </property>
   <property name="autoFillBackground">

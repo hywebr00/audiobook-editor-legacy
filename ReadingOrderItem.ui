@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ReadingOrderItem</class>
+ <widget class="QWidget" name="ReadingOrderItem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>420</width>
+    <height>78</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>420</width>
+    <height>78</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>420</width>
+    <height>78</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #333333;
+
+margin: 0px 0px;
+
+QWidget::QFrame {
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-sizing: border-box;
+	border-radius: 8px; 
+}
+
+/*
+QWidget {
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+
+	padding: 4px;
+}
+*/
+/*
+QWidget:hover:!pressed
+{
+	background-color: #333333;
+	color: #333333;
+}
+
+
+QWidget:hover
+{
+	background-color: #333333;
+	color: #333333;
+}
+*/
+</string>
+  </property>
+  <widget class="QLabel" name="label_Index">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>4</y>
+     <width>34</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>-1</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Noto Sans TC;
+font-size: 12px;
+line-height: 17px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(255, 255, 255, 0.9);
+background-color: rgba(255, 255, 255, 0);
+
+
+/* Inside Auto Layout */
+
+
+/* margin: 0px 0px; */</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>34</x>
+     <y>4</y>
+     <width>366</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+	background: #404040;
+	border-radius: 6px;
+}
+
+QFrame:hover {
+	background: #474747;
+}
+
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_Drag">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>23</y>
+      <width>24</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/SVG/svg/icon/common-drag.svg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Add">
+    <property name="geometry">
+     <rect>
+      <x>288</x>
+      <y>6</y>
+      <width>24</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background: #404040;
+border: 0px;
+
+color: #FFFFFF;
+
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/SVG/svg/icon/reading-order-add-to-list.svg</normaloff>:/SVG/svg/icon/reading-order-add-to-list.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>24</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Remove">
+    <property name="geometry">
+     <rect>
+      <x>324</x>
+      <y>6</y>
+      <width>24</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #404040;
+border: 0px;
+
+color: #FFFFFF;
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/SVG/svg/icon/common-remove.svg</normaloff>:/SVG/svg/icon/common-remove.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>24</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Duration">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>38</y>
+      <width>56</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>56</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* 00:10:05 */
+
+
+position: static;
+width: 52px;
+height: 16px;
+right: 0px;
+top: calc(50% - 16px/2);
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 19px;
+text-align: right;
+
+color: rgba(255, 255, 255, 0.6);
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 0px;
+
+/* cell/text */
+
+color: #FFFFFF;</string>
+    </property>
+    <property name="text">
+     <string notr="true">00:00:00</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>58</x>
+      <y>62</y>
+      <width>288</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* Rectangle 48 */
+
+
+position: absolute;
+height: 2px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+background: #666666;</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="textVisible">
+     <bool>false</bool>
+    </property>
+    <property name="invertedAppearance">
+     <bool>false</bool>
+    </property>
+    <property name="format">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>28</x>
+      <y>6</y>
+      <width>258</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>258</width>
+      <height>24</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>258</width>
+      <height>24</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Sans TC</family>
+      <pointsize>-1</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+	color: #FFFFFF;
+
+	font-family: Noto Sans TC;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 24px;
+
+	background: #404040;
+	border: none;
+}
+
+QLineEdit:focus {
+	background: #393939;
+}
+</string>
+    </property>
+    <property name="inputMask">
+     <string notr="true"/>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Please input title...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Play">
+    <property name="geometry">
+     <rect>
+      <x>32</x>
+      <y>40</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #404040;
+border: 0px;
+color: #FFFFFF;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/SVG/svg/icon/reading-order-play.svg</normaloff>:/SVG/svg/icon/reading-order-play.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Href">
+    <property name="geometry">
+     <rect>
+      <x>58</x>
+      <y>38</y>
+      <width>224</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>224</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Noto Sans TC</family>
+      <pointsize>-1</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">align-items: center;
+margin: 0px 0px;
+color: #FFFFFF;
+
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;</string>
+    </property>
+    <property name="text">
+     <string>*.mp3</string>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

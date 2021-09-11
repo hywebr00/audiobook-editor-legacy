@@ -24,7 +24,6 @@ SOURCES 		+=	../main.py \
 					../toclistwidgetitem.py \
 					../translucent.py \
 					../validator.py \
-					../validator_wrapper.py
 					
 FORMS			=	../Alert.ui \
 					../AlertWithButtons.ui \

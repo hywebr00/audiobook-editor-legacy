@@ -1,0 +1,14 @@
+本程式使用以下所列套件及模組，相對的法律授權依據並列於後:
+
+backports.tempfile, Python Software Foundation License
+beautifulsoup4, MIT License
+html5lib, MIT License
+jsonschema, MIT License
+multipledispatch, BSD
+tinytag, MIT License
+PySide, LGPL v3
+Python 3.7, GPL-compatible
+Qt5, LGPL v3
+regex, Apache Software License
+requests, Apache Software License
+urllib3, MIT License

@@ -1,0 +1,383 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'MainWindow.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
+import resources_rc
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        if not MainWindow.objectName():
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(954, 648)
+        MainWindow.setMinimumSize(QSize(948, 648))
+        icon = QIcon()
+        icon.addFile(u":/SVG/svg/icon/AudiobookEditorLogo@16.svg", QSize(), QIcon.Normal, QIcon.Off)
+        MainWindow.setWindowIcon(icon)
+        MainWindow.setLayoutDirection(Qt.LeftToRight)
+        MainWindow.setStyleSheet(u"background-color: #333333;\n"
+"")
+        MainWindow.setDockOptions(QMainWindow.AllowTabbedDocks)
+        self.action_New = QAction(MainWindow)
+        self.action_New.setObjectName(u"action_New")
+        font = QFont()
+        font.setFamily(u"Noto Sans TC")
+        font.setPointSize(13)
+        self.action_New.setFont(font)
+        self.action_Open = QAction(MainWindow)
+        self.action_Open.setObjectName(u"action_Open")
+        self.action_Open.setFont(font)
+        self.action_Close = QAction(MainWindow)
+        self.action_Close.setObjectName(u"action_Close")
+        self.action_Qt = QAction(MainWindow)
+        self.action_Qt.setObjectName(u"action_Qt")
+        self.action_Qt.setFont(font)
+        self.action_Qt.setVisible(False)
+        self.action_PyQt5 = QAction(MainWindow)
+        self.action_PyQt5.setObjectName(u"action_PyQt5")
+        self.action_PyQt5.setFont(font)
+        self.action_PyQt5.setVisible(False)
+        self.action_Preview = QAction(MainWindow)
+        self.action_Preview.setObjectName(u"action_Preview")
+        self.action_Preview.setEnabled(False)
+        icon1 = QIcon()
+        icon1.addFile(u":/SVG/svg/icon/toolbar-preview.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.action_Preview.setIcon(icon1)
+        self.action_Preview.setFont(font)
+        self.action_Preview.setVisible(False)
+        self.action_Preview.setIconVisibleInMenu(False)
+        self.action_Validate = QAction(MainWindow)
+        self.action_Validate.setObjectName(u"action_Validate")
+        self.action_Validate.setEnabled(True)
+        icon2 = QIcon()
+        icon2.addFile(u":/SVG/svg/icon/toolbar-validate.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.action_Validate.setIcon(icon2)
+        font1 = QFont()
+        font1.setFamily(u"Noto Sans")
+        self.action_Validate.setFont(font1)
+        self.action_Validate.setVisible(True)
+        self.action_Pack = QAction(MainWindow)
+        self.action_Pack.setObjectName(u"action_Pack")
+        icon3 = QIcon()
+        icon3.addFile(u":/SVG/svg/icon/toolbar-package.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.action_Pack.setIcon(icon3)
+        self.action_Pack.setFont(font)
+        self.action_Pack.setIconVisibleInMenu(False)
+        self.action_Exit = QAction(MainWindow)
+        self.action_Exit.setObjectName(u"action_Exit")
+        self.action_Exit.setFont(font)
+        self.action_Save = QAction(MainWindow)
+        self.action_Save.setObjectName(u"action_Save")
+        self.action_Save.setFont(font)
+        self.action_Help = QAction(MainWindow)
+        self.action_Help.setObjectName(u"action_Help")
+        self.action_Help.setEnabled(False)
+        icon4 = QIcon()
+        icon4.addFile(u":/SVG/svg/icon/toolbar-about.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.action_Help.setIcon(icon4)
+        self.action_Help.setVisible(False)
+        self.action_Settings = QAction(MainWindow)
+        self.action_Settings.setObjectName(u"action_Settings")
+        self.action_Settings.setEnabled(False)
+        self.action_Settings.setFont(font)
+        self.action_Settings.setVisible(False)
+        self.action_Version = QAction(MainWindow)
+        self.action_Version.setObjectName(u"action_Version")
+        self.action_Version.setFont(font)
+        self.action_Thanks = QAction(MainWindow)
+        self.action_Thanks.setObjectName(u"action_Thanks")
+        self.action_Thanks.setEnabled(False)
+        self.action_Thanks.setFont(font)
+        self.action_Thanks.setVisible(False)
+        self.action_EN = QAction(MainWindow)
+        self.action_EN.setObjectName(u"action_EN")
+        self.action_EN.setCheckable(True)
+        self.action_EN.setText(u"English")
+#if QT_CONFIG(tooltip)
+        self.action_EN.setToolTip(u"English")
+#endif // QT_CONFIG(tooltip)
+        self.action_EN.setFont(font)
+        self.action_EN.setAutoRepeat(True)
+        self.action_TC = QAction(MainWindow)
+        self.action_TC.setObjectName(u"action_TC")
+        self.action_TC.setCheckable(True)
+        self.action_TC.setText(u"\u7e41\u9ad4\u4e2d\u6587")
+#if QT_CONFIG(tooltip)
+        self.action_TC.setToolTip(u"\u7e41\u9ad4\u4e2d\u6587")
+#endif // QT_CONFIG(tooltip)
+        self.action_TC.setFont(font)
+        self.action_TC.setAutoRepeat(True)
+        self.action_TC.setMenuRole(QAction.TextHeuristicRole)
+        self.centralwidget = QWidget(MainWindow)
+        self.centralwidget.setObjectName(u"centralwidget")
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
+        self.centralwidget.setMinimumSize(QSize(436, 0))
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QMenuBar(MainWindow)
+        self.menubar.setObjectName(u"menubar")
+        self.menubar.setGeometry(QRect(0, 0, 954, 25))
+        self.menubar.setFont(font)
+        self.menubar.setStyleSheet(u"")
+        self.menu_File = QMenu(self.menubar)
+        self.menu_File.setObjectName(u"menu_File")
+        self.menu_File.setFont(font)
+        self.menu_File.setStyleSheet(u"")
+        self.menu_Language = QMenu(self.menu_File)
+        self.menu_Language.setObjectName(u"menu_Language")
+        self.menu_Language.setFont(font)
+        self.menu_Language.setContextMenuPolicy(Qt.NoContextMenu)
+        self.menu_Language.setAcceptDrops(False)
+        self.menu_Language.setStyleSheet(u"")
+        self.menu_Language.setTearOffEnabled(False)
+        self.menu_Language.setSeparatorsCollapsible(False)
+        self.menu_Language.setToolTipsVisible(True)
+        self.menu_Project = QMenu(self.menubar)
+        self.menu_Project.setObjectName(u"menu_Project")
+        self.menuHelp = QMenu(self.menubar)
+        self.menuHelp.setObjectName(u"menuHelp")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QStatusBar(MainWindow)
+        self.statusbar.setObjectName(u"statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.toolBar = QToolBar(MainWindow)
+        self.toolBar.setObjectName(u"toolBar")
+        self.toolBar.setEnabled(True)
+        self.toolBar.setLayoutDirection(Qt.RightToLeft)
+        self.toolBar.setMovable(False)
+        self.toolBar.setAllowedAreas(Qt.RightToolBarArea|Qt.TopToolBarArea)
+        self.toolBar.setFloatable(False)
+        MainWindow.addToolBar(Qt.TopToolBarArea, self.toolBar)
+        self.dockWidget_Left = QDockWidget(MainWindow)
+        self.dockWidget_Left.setObjectName(u"dockWidget_Left")
+        sizePolicy.setHeightForWidth(self.dockWidget_Left.sizePolicy().hasHeightForWidth())
+        self.dockWidget_Left.setSizePolicy(sizePolicy)
+        self.dockWidget_Left.setMinimumSize(QSize(256, 76))
+        self.dockWidget_Left.setMaximumSize(QSize(256, 524287))
+        font2 = QFont()
+        font2.setFamily(u"Courier New")
+        font2.setPointSize(14)
+        self.dockWidget_Left.setFont(font2)
+        self.dockWidget_Left.setAutoFillBackground(False)
+        self.dockWidget_Left.setStyleSheet(u"background: #404040;\n"
+"border: 0px;\n"
+"\n"
+"QTabBar::tab {\n"
+"	left: 0\n"
+"}\n"
+"")
+        self.dockWidget_Left.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.dockWidget_Left.setAllowedAreas(Qt.LeftDockWidgetArea)
+        self.dockWidgetContents_3 = QWidget()
+        self.dockWidgetContents_3.setObjectName(u"dockWidgetContents_3")
+        sizePolicy.setHeightForWidth(self.dockWidgetContents_3.sizePolicy().hasHeightForWidth())
+        self.dockWidgetContents_3.setSizePolicy(sizePolicy)
+        self.dockWidgetContents_3.setMinimumSize(QSize(256, 0))
+        self.dockWidgetContents_3.setMaximumSize(QSize(256, 16777215))
+        self.dockWidgetContents_3.setStyleSheet(u"border: 0px;")
+        self.gridLayout = QGridLayout(self.dockWidgetContents_3)
+        self.gridLayout.setSpacing(0)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.tabWidget = QTabWidget(self.dockWidgetContents_3)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setEnabled(True)
+        sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
+        self.tabWidget.setSizePolicy(sizePolicy)
+        self.tabWidget.setMinimumSize(QSize(256, 0))
+        self.tabWidget.setMaximumSize(QSize(256, 16777215))
+        self.tabWidget.setFont(font)
+        self.tabWidget.setAutoFillBackground(False)
+        self.tabWidget.setStyleSheet(u"QTabWidget::tab-bar{\n"
+"height: 32px;\n"
+"width: 166px;\n"
+"font-size: 13px;\n"
+"line-height: 18px;\n"
+"}\n"
+"\n"
+"QTabBar::tab {\n"
+"	background-color : #404040;\n"
+"}\n"
+"\n"
+"QTabBar::tab::unselected { \n"
+"	color: rgba(255, 255, 255, 0.4);\n"
+"	height: 32px;\n"
+"}\n"
+"\n"
+"QTabBar::tab::selected { \n"
+"	color: #FFFFFF;\n"
+"	height: 32px;\n"
+"}\n"
+"\n"
+"QTabWidget::pane { border: 0; }\n"
+"\n"
+"margin: 0px 0px;")
+        self.tabWidget.setIconSize(QSize(0, 0))
+        self.tabWidget.setUsesScrollButtons(False)
+        self.tabWidget.setTabBarAutoHide(False)
+        self.tab_Metadata = QWidget()
+        self.tab_Metadata.setObjectName(u"tab_Metadata")
+        sizePolicy.setHeightForWidth(self.tab_Metadata.sizePolicy().hasHeightForWidth())
+        self.tab_Metadata.setSizePolicy(sizePolicy)
+        self.tab_Metadata.setMinimumSize(QSize(256, 0))
+        self.tab_Metadata.setMaximumSize(QSize(256, 16777215))
+        self.tab_Metadata.setFont(font2)
+        self.tab_Metadata.setAutoFillBackground(False)
+        self.tab_Metadata.setStyleSheet(u"border: 0px;\n"
+"")
+        self.tabWidget.addTab(self.tab_Metadata, "")
+        self.tab_TOC = QWidget()
+        self.tab_TOC.setObjectName(u"tab_TOC")
+        sizePolicy.setHeightForWidth(self.tab_TOC.sizePolicy().hasHeightForWidth())
+        self.tab_TOC.setSizePolicy(sizePolicy)
+        self.tab_TOC.setMinimumSize(QSize(256, 0))
+        self.tab_TOC.setMaximumSize(QSize(256, 16777215))
+        self.tab_TOC.setFont(font2)
+        self.tab_TOC.setAutoFillBackground(False)
+        self.tab_TOC.setStyleSheet(u"\n"
+"border: 0px;\n"
+"\n"
+"/*\n"
+"QListWidget::item { border: 2px solid #000000 }\n"
+"*/")
+        self.tabWidget.addTab(self.tab_TOC, "")
+
+        self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
+
+        self.dockWidget_Left.setWidget(self.dockWidgetContents_3)
+        MainWindow.addDockWidget(Qt.LeftDockWidgetArea, self.dockWidget_Left)
+        self.dockWidget_CoverPreviewWidget = QDockWidget(MainWindow)
+        self.dockWidget_CoverPreviewWidget.setObjectName(u"dockWidget_CoverPreviewWidget")
+        sizePolicy.setHeightForWidth(self.dockWidget_CoverPreviewWidget.sizePolicy().hasHeightForWidth())
+        self.dockWidget_CoverPreviewWidget.setSizePolicy(sizePolicy)
+        self.dockWidget_CoverPreviewWidget.setMinimumSize(QSize(256, 216))
+        self.dockWidget_CoverPreviewWidget.setMaximumSize(QSize(256, 216))
+        font3 = QFont()
+        font3.setFamily(u"Noto Sans TC")
+        font3.setPointSize(12)
+        self.dockWidget_CoverPreviewWidget.setFont(font3)
+        self.dockWidget_CoverPreviewWidget.setStyleSheet(u"background: #404040;\n"
+"border: 0px;\n"
+"")
+        self.dockWidget_CoverPreviewWidget.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.dockWidget_CoverPreviewWidget.setAllowedAreas(Qt.RightDockWidgetArea)
+        self.dockWidgetContents = QWidget()
+        self.dockWidgetContents.setObjectName(u"dockWidgetContents")
+        sizePolicy.setHeightForWidth(self.dockWidgetContents.sizePolicy().hasHeightForWidth())
+        self.dockWidgetContents.setSizePolicy(sizePolicy)
+        self.dockWidgetContents.setMinimumSize(QSize(256, 232))
+        self.dockWidgetContents.setMaximumSize(QSize(256, 232))
+        self.dockWidgetContents.setStyleSheet(u"border: 0px;")
+        self.dockWidget_CoverPreviewWidget.setWidget(self.dockWidgetContents)
+        MainWindow.addDockWidget(Qt.RightDockWidgetArea, self.dockWidget_CoverPreviewWidget)
+        self.dockWidget_SupplementalList = QDockWidget(MainWindow)
+        self.dockWidget_SupplementalList.setObjectName(u"dockWidget_SupplementalList")
+        sizePolicy.setHeightForWidth(self.dockWidget_SupplementalList.sizePolicy().hasHeightForWidth())
+        self.dockWidget_SupplementalList.setSizePolicy(sizePolicy)
+        self.dockWidget_SupplementalList.setMinimumSize(QSize(256, 39))
+        self.dockWidget_SupplementalList.setMaximumSize(QSize(256, 524287))
+        self.dockWidget_SupplementalList.setFont(font3)
+        self.dockWidget_SupplementalList.setStyleSheet(u"background: #404040;\n"
+"border: 0px;\n"
+"margin: 0px;")
+        self.dockWidget_SupplementalList.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.dockWidget_SupplementalList.setAllowedAreas(Qt.RightDockWidgetArea)
+        self.dockWidgetContents_2 = QWidget()
+        self.dockWidgetContents_2.setObjectName(u"dockWidgetContents_2")
+        sizePolicy.setHeightForWidth(self.dockWidgetContents_2.sizePolicy().hasHeightForWidth())
+        self.dockWidgetContents_2.setSizePolicy(sizePolicy)
+        self.dockWidgetContents_2.setMinimumSize(QSize(256, 0))
+        self.dockWidgetContents_2.setMaximumSize(QSize(256, 16777215))
+        self.dockWidgetContents_2.setAutoFillBackground(False)
+        self.dockWidgetContents_2.setStyleSheet(u"border: 0px;\n"
+"\n"
+"padding: 0px;\n"
+"\n"
+"margin: 0px;")
+        self.dockWidget_SupplementalList.setWidget(self.dockWidgetContents_2)
+        MainWindow.addDockWidget(Qt.RightDockWidgetArea, self.dockWidget_SupplementalList)
+
+        self.menubar.addAction(self.menu_File.menuAction())
+        self.menubar.addAction(self.menu_Project.menuAction())
+        self.menubar.addAction(self.menuHelp.menuAction())
+        self.menu_File.addAction(self.action_New)
+        self.menu_File.addAction(self.action_Open)
+        self.menu_File.addAction(self.action_Save)
+        self.menu_File.addAction(self.action_Exit)
+        self.menu_File.addAction(self.action_Settings)
+        self.menu_File.addSeparator()
+        self.menu_File.addAction(self.menu_Language.menuAction())
+        self.menu_Language.addAction(self.action_EN)
+        self.menu_Language.addAction(self.action_TC)
+        self.menu_Project.addAction(self.action_Preview)
+        self.menu_Project.addAction(self.action_Pack)
+        self.menuHelp.addAction(self.action_Qt)
+        self.menuHelp.addAction(self.action_PyQt5)
+        self.menuHelp.addSeparator()
+        self.menuHelp.addAction(self.action_Version)
+        self.menuHelp.addAction(self.action_Thanks)
+        self.toolBar.addAction(self.action_Help)
+        self.toolBar.addAction(self.action_Pack)
+        self.toolBar.addAction(self.action_Validate)
+        self.toolBar.addAction(self.action_Preview)
+
+        self.retranslateUi(MainWindow)
+
+        self.tabWidget.setCurrentIndex(1)
+
+
+        QMetaObject.connectSlotsByName(MainWindow)
+    # setupUi
+
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Audiobook Editor", None))
+        self.action_New.setText(QCoreApplication.translate("MainWindow", u"&New", None))
+        self.action_Open.setText(QCoreApplication.translate("MainWindow", u"&Open", None))
+        self.action_Close.setText(QCoreApplication.translate("MainWindow", u"&Close", None))
+        self.action_Qt.setText(QCoreApplication.translate("MainWindow", u"&Qt", None))
+        self.action_PyQt5.setText(QCoreApplication.translate("MainWindow", u"&PyQt5", None))
+        self.action_Preview.setText(QCoreApplication.translate("MainWindow", u"&Preview", None))
+        self.action_Validate.setText(QCoreApplication.translate("MainWindow", u"&Validate", None))
+        self.action_Pack.setText(QCoreApplication.translate("MainWindow", u"&Package", None))
+#if QT_CONFIG(tooltip)
+        self.action_Pack.setToolTip(QCoreApplication.translate("MainWindow", u"Pack", None))
+#endif // QT_CONFIG(tooltip)
+        self.action_Exit.setText(QCoreApplication.translate("MainWindow", u"&Exit", None))
+        self.action_Save.setText(QCoreApplication.translate("MainWindow", u"&Save", None))
+        self.action_Help.setText(QCoreApplication.translate("MainWindow", u"&About", None))
+        self.action_Settings.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
+        self.action_Version.setText(QCoreApplication.translate("MainWindow", u"&Version", None))
+        self.action_Thanks.setText(QCoreApplication.translate("MainWindow", u"&Thanks", None))
+#if QT_CONFIG(whatsthis)
+        self.action_EN.setWhatsThis("")
+#endif // QT_CONFIG(whatsthis)
+#if QT_CONFIG(whatsthis)
+        self.action_TC.setWhatsThis("")
+#endif // QT_CONFIG(whatsthis)
+        self.menu_File.setTitle(QCoreApplication.translate("MainWindow", u"&File", None))
+#if QT_CONFIG(tooltip)
+        self.menu_Language.setToolTip(QCoreApplication.translate("MainWindow", u"Select your language", None))
+#endif // QT_CONFIG(tooltip)
+        self.menu_Language.setTitle(QCoreApplication.translate("MainWindow", u"&Language", None))
+        self.menu_Project.setTitle(QCoreApplication.translate("MainWindow", u"&Project", None))
+        self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"About", None))
+        self.toolBar.setWindowTitle(QCoreApplication.translate("MainWindow", u"toolBar", None))
+        self.dockWidget_Left.setWindowTitle(QCoreApplication.translate("MainWindow", u"Left DockWidget", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_Metadata), QCoreApplication.translate("MainWindow", u"Metadata", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_TOC), QCoreApplication.translate("MainWindow", u"TOC", None))
+        self.dockWidget_CoverPreviewWidget.setWindowTitle(QCoreApplication.translate("MainWindow", u"Cover Preview Widget", None))
+        self.dockWidget_SupplementalList.setWindowTitle(QCoreApplication.translate("MainWindow", u"Supplemental List", None))
+    # retranslateUi
+

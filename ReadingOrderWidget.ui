@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ReadingOrderWidget</class>
+ <widget class="QWidget" name="ReadingOrderWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>436</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>436</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>436</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #333333;
+box-shadow: inset 1px 0px 0px rgba(0, 0, 0, 0.25);</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>420</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>420</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: #333333;
+/* background: rgba(255, 255, 255, 0.0001); */
+box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.2);
+</string>
+       </property>
+       <widget class="QPushButton" name="pushButton_Add">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>0</y>
+          <width>40</width>
+          <height>40</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Noto Sans TC;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+
+/*
+position: absolute;
+width: 24px;
+height: 24px;
+left: calc(50% - 24px/2);
+top: calc(50% - 24px/2);
+*/
+
+color: rgba(255, 255, 255, 1);
+/* 
+background: rgba(255, 255, 255, 0.0001); 
+*/
+
+
+background: #333333;
+border: 0px;
+color: #FFFFFF;
+
+
+/*
+QToolTip {
+	color: rgba(255, 0, 0, 1);
+	background: rgba(255, 255, 0, 1);
+}
+*/
+
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/SVG/svg/icon/common-add.svg</normaloff>:/SVG/svg/icon/common-add.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>166</x>
+          <y>5</y>
+          <width>160</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Noto Sans TC</family>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgba(255, 255, 255, 0.5);
+background: rgba(255, 255, 255, 0.0001);</string>
+        </property>
+        <property name="text">
+         <string>Reading Order</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>144</x>
+          <y>11</y>
+          <width>18</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: rgba(255, 255, 255, 0.0001);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="resources.qrc">:/SVG/svg/icon/reading-order-icon.svg</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_Board" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>420</width>
+         <height>350</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>420</width>
+         <height>350</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <widget class="QLabel" name="label_NoItem">
+        <property name="geometry">
+         <rect>
+          <x>161</x>
+          <y>14</y>
+          <width>360</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>360</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>360</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Noto Sans TC</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <italic>true</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">position: absolute;
+width: 197px;
+height: 18px;
+left: 161px;
+top: 13.89px;
+
+font-family: Noto Sans TC;
+font-style: italic;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: right;
+
+/* icon/primary */
+
+color: #5AB0FF;</string>
+        </property>
+        <property name="text">
+         <string>Start by adding an audio file here.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_Usage" native="true">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>1</x>
+          <y>183</y>
+          <width>415</width>
+          <height>146</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>415</width>
+          <height>146</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>415</width>
+          <height>146</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* Group 27 */
+
+/*
+position: absolute;
+width: 243.01px;
+height: 132.25px;
+left: 144px;
+top: 153px;
+*/</string>
+        </property>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>115</x>
+           <y>0</y>
+           <width>415</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Noto Sans TC</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/*
+position: absolute;
+width: 178px;
+height: 20px;
+left: calc(50% - 178px/2 - 6px);
+top: calc(50% - 20px/2 - 56px);
+*/
+
+/*
+font-family: Noto Sans TC;
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 20px;
+display: flex;
+align-items: center;
+text-align: center;
+*/
+
+color: rgba(255, 255, 255, 0.9);
+opacity: 0.8;</string>
+         </property>
+         <property name="text">
+          <string>Let's create an audiobook!</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_5">
+         <property name="geometry">
+          <rect>
+           <x>104</x>
+           <y>42</y>
+           <width>300</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>18</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Noto Sans TC</family>
+           <pointsize>13</pointsize>
+           <italic>false</italic>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string notr="true"/>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/*
+position: absolute;
+width: 221px;
+height: 18px;
+left: calc(50% - 221px/2 + 4.5px);
+top: calc(50% - 18px/2 - 14.75px);
+*/
+/*
+font-family: Noto Sans TC;
+font-style: italic;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+*/
+/* identical to box height */
+
+/*
+display: flex;
+align-items: center;
+*/
+/* cell/label */
+
+color: rgba(255, 255, 255, 0.5);</string>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="text">
+          <string>Add audio files and edit the metadata. </string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::AutoText</enum>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>104</x>
+           <y>78</y>
+           <width>300</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>18</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Noto Sans TC</family>
+           <pointsize>13</pointsize>
+           <italic>false</italic>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string notr="true"/>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Preview and validate */
+
+/*
+position: absolute;
+width: 119px;
+height: 18px;
+left: calc(50% - 119px/2 - 46.5px);
+top: calc(50% - 18px/2 + 21.25px);
+
+font-family: Noto Sans;
+font-style: italic;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+*/
+/* identical to box height */
+/*
+display: flex;
+align-items: center;
+*/
+/* cell/label */
+
+color: rgba(255, 255, 255, 0.5);</string>
+         </property>
+         <property name="text">
+          <string>Preview and validate </string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>104</x>
+           <y>111</y>
+           <width>300</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>22</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>22</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Noto Sans TC</family>
+           <pointsize>13</pointsize>
+           <italic>false</italic>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string notr="true"/>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Preview and validate */
+
+/*
+position: absolute;
+width: 119px;
+height: 18px;
+left: calc(50% - 119px/2 - 46.5px);
+top: calc(50% - 18px/2 + 21.25px);
+
+font-family: Noto Sans;
+font-style: italic;
+font-weight: normal;
+font-size: 13px;
+line-height: 18px;
+*/
+/* identical to box height */
+/*
+display: flex;
+align-items: center;
+*/
+/* cell/label */
+
+color: rgba(255, 255, 255, 0.5);</string>
+         </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+         <property name="text">
+          <string>Pack! And get a unique audiobook!</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_8">
+         <property name="geometry">
+          <rect>
+           <x>82</x>
+           <y>48</y>
+           <width>6</width>
+           <height>6</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Ellipse 38 */
+
+
+position: absolute;
+width: 6px;
+height: 6px;
+left: calc(50% - 6px/2 - 125px);
+top: calc(50% - 6px/2 - 14.75px);
+
+background: #999999;
+
+border-radius: 3px;</string>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_9">
+         <property name="geometry">
+          <rect>
+           <x>84</x>
+           <y>60</y>
+           <width>2</width>
+           <height>2</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Ellipse 38 */
+
+
+position: absolute;
+width: 6px;
+height: 6px;
+left: calc(50% - 6px/2 - 125px);
+top: calc(50% - 6px/2 - 14.75px);
+
+background: #999999;
+
+border-radius: 1px;</string>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_10">
+         <property name="geometry">
+          <rect>
+           <x>84</x>
+           <y>68</y>
+           <width>2</width>
+           <height>2</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Ellipse 38 */
+
+
+position: absolute;
+width: 6px;
+height: 6px;
+left: calc(50% - 6px/2 - 125px);
+top: calc(50% - 6px/2 - 14.75px);
+
+background: #999999;
+
+border-radius: 1px;</string>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_12">
+         <property name="geometry">
+          <rect>
+           <x>84</x>
+           <y>76</y>
+           <width>2</width>
+           <height>2</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Ellipse 38 */
+
+
+position: absolute;
+width: 6px;
+height: 6px;
+left: calc(50% - 6px/2 - 125px);
+top: calc(50% - 6px/2 - 14.75px);
+
+background: #999999;
+
+border-radius: 1px;</string>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_13">
+         <property name="geometry">
+          <rect>
+           <x>82</x>
+           <y>84</y>
+           <width>6</width>
+           <height>6</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Ellipse 38 */
+
+
+position: absolute;
+width: 6px;
+height: 6px;
+left: calc(50% - 6px/2 - 125px);
+top: calc(50% - 6px/2 - 14.75px);
+
+background: #999999;
+
+border-radius: 3px;</string>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_14">
+         <property name="geometry">
+          <rect>
+           <x>82</x>
+           <y>120</y>
+           <width>6</width>
+           <height>6</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Ellipse 38 */
+
+
+position: absolute;
+width: 6px;
+height: 6px;
+left: calc(50% - 6px/2 - 125px);
+top: calc(50% - 6px/2 - 14.75px);
+
+background: #999999;
+
+border-radius: 3px;</string>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_15">
+         <property name="geometry">
+          <rect>
+           <x>84</x>
+           <y>96</y>
+           <width>2</width>
+           <height>2</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Ellipse 38 */
+
+
+position: absolute;
+width: 6px;
+height: 6px;
+left: calc(50% - 6px/2 - 125px);
+top: calc(50% - 6px/2 - 14.75px);
+
+background: #999999;
+
+border-radius: 1px;</string>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_16">
+         <property name="geometry">
+          <rect>
+           <x>84</x>
+           <y>104</y>
+           <width>2</width>
+           <height>2</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Ellipse 38 */
+
+
+position: absolute;
+width: 6px;
+height: 6px;
+left: calc(50% - 6px/2 - 125px);
+top: calc(50% - 6px/2 - 14.75px);
+
+background: #999999;
+
+border-radius: 1px;</string>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_17">
+         <property name="geometry">
+          <rect>
+           <x>84</x>
+           <y>112</y>
+           <width>2</width>
+           <height>2</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Ellipse 38 */
+
+
+position: absolute;
+width: 6px;
+height: 6px;
+left: calc(50% - 6px/2 - 125px);
+top: calc(50% - 6px/2 - 14.75px);
+
+background: #999999;
+
+border-radius: 1px;</string>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="label_Arrow">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>0</y>
+          <width>50</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Noto Sans</family>
+          <pointsize>11</pointsize>
+          <weight>50</weight>
+          <italic>true</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string notr="true"/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="resources.qrc">:/SVG/svg/icon/ftu-add-reading-order-arrow.svg</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_Book">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>420</width>
+         <height>200</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>420</width>
+         <height>200</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Noto Sans</family>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <italic>true</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/* Start by adding an audio file here. */
+
+
+position: absolute;
+width: 197px;
+height: 18px;
+
+
+font-style: italic;
+font-weight: normal;
+
+
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: right;
+
+/* icon/primary */
+
+color: #5AB0FF;</string>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resources.qrc">:/SVG/svg/icon/ftu-background-pattern.svg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::NoTextInteraction</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="listWidget">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>420</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>420</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="acceptDrops">
+        <bool>false</bool>
+       </property>
+       <property name="toolTip">
+        <string notr="true"/>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/*
+QListWidget {
+	border: 0px;
+}
+
+QListWidget::item:hover {
+	background: #333333;
+}
+*/
+
+border:0px;
+
+color: rgba(255, 255, 255, 0.5);
+background: rgba(255, 255, 255, 0.0001);
+
+margin: 0px;
+spacing: 0px;
+/*
+QListWidget::item:hover,
+QListWidget::item:disabled:hover,
+QListWidget::item:hover:!active,
+{background: #333333;}
+*/</string>
+       </property>
+       <property name="lineWidth">
+        <number>0</number>
+       </property>
+       <property name="midLineWidth">
+        <number>0</number>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAsNeeded</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="autoScrollMargin">
+        <number>0</number>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="dragEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="dragDropOverwriteMode">
+        <bool>false</bool>
+       </property>
+       <property name="dragDropMode">
+        <enum>QAbstractItemView::InternalMove</enum>
+       </property>
+       <property name="defaultDropAction">
+        <enum>Qt::MoveAction</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectItems</enum>
+       </property>
+       <property name="movement">
+        <enum>QListView::Free</enum>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="selectionRectVisible">
+        <bool>false</bool>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

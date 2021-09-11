@@ -169,7 +169,7 @@ class Ui_LoadingWidget(object):
     # setupUi
 
     def retranslateUi(self, LoadingWidget):
-        LoadingWidget.setWindowTitle(QCoreApplication.translate("LoadingWidget", u"Loading", None))
+        LoadingWidget.setWindowTitle(QCoreApplication.translate("LoadingWidget", u"Audiobook Editor", None))
         self.label.setText("")
         self.label_2.setText(QCoreApplication.translate("LoadingWidget", u"Audiobook Editor", None))
         self.label_3.setText(QCoreApplication.translate("LoadingWidget", u"Loading......", None))

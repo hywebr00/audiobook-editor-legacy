@@ -1,0 +1,14 @@
+The following packages and modules are used by this application. Their respective license is also listed here.
+
+backports.tempfile,	Python Software Foundation License
+beautifulsoup4, MIT License
+html5lib, MIT License
+jsonschema, MIT License
+multipledispatch, BSD
+tinytag, MIT License
+PySide, LGPL v3
+Python 3.7, GPL-compatible
+Qt5, LGPL v3
+regex, Apache Software License
+requests, Apache Software License
+urllib3, MIT License
