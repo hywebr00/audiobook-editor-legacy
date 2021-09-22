@@ -245,6 +245,7 @@ def loadApplicationFonts(fontPaths):
 
 
 if __name__ == "__main__":
+    os.environ['QT_MAC_WANTS_LAYER'] = '1'
 
     # if sys.platform.startswith('win'):
     #     errorCode = ctypes.windll.shcore.SetProcessDpiAwareness(0)

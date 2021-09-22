@@ -14,8 +14,8 @@
    <string>Audiobook Editor</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</normaloff>:/SVG/svg/icon/audiobook-editor-logo.svg</iconset>
+   <iconset resource="resources.qrc">
+    <normaloff>:/SVG/svg/icon/AudiobookEditorLogo@16.svg</normaloff>:/SVG/svg/icon/AudiobookEditorLogo@16.svg</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">/* loading */

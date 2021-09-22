@@ -1120,7 +1120,7 @@ margin: 0px 0px;</string>
        <item row="14" column="4">
         <widget class="QComboBox" name="comboBox_inLanguage">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>

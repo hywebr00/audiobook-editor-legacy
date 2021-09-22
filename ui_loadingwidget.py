@@ -20,7 +20,7 @@ class Ui_LoadingWidget(object):
             LoadingWidget.setObjectName(u"LoadingWidget")
         LoadingWidget.resize(640, 480)
         icon = QIcon()
-        icon.addFile(u":/SVG/svg/icon/audiobook-editor-logo.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/SVG/svg/icon/AudiobookEditorLogo@16.svg", QSize(), QIcon.Normal, QIcon.Off)
         LoadingWidget.setWindowIcon(icon)
         LoadingWidget.setStyleSheet(u"/* loading */\n"
 "\n"
