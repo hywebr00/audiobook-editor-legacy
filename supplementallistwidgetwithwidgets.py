@@ -273,8 +273,8 @@ class SupplementalListWidgetWithWidgets(QWidget):
         logging.debug('add_Resource_to_TOC')
         self.signal_Add_Resource_to_TOC.emit(fullFilename, "")
 
-    def mouseDoubleClickEvent(self, event):
-        logging.debug(event.localPos())
+    # def mouseDoubleClickEvent(self, event):
+    #     logging.debug(event.localPos())
 
     def changeEvent(self, event):
         """Handle LanguageChange event"""

@@ -13,7 +13,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from ui_readingorderitem import Ui_ReadingOrderItem
+# from ui_readingorderitem import Ui_ReadingOrderItem
 from ui_readingorderwidget import Ui_ReadingOrderWidget
 from readingorderitem import ReadingOrderItem
 # from attachfromwidget import AttachFromWidget
@@ -21,6 +21,7 @@ from attachfromwidgetwithouturl import AttachFromWidgetWithoutURL
 from alert import Alert, AlertWithButtons
 from translucent import MaskWidget
 from book import Audiobook, Helper
+from supplementallistwidgetitem import SupplementalListWidgetItem
 # import resources_rc
 
 
@@ -93,6 +94,10 @@ class ReadingOrderWidget(QWidget):
                                           "font-weight: 400;font-size: 14px;line-height: 20px;border: 0px;\">" +
                                           self._translate("ReadingOrderWidget", "Add voice to Reading Order") +
                                           "</p>")
+
+        # self.ui.listWidget.setAcceptDrops(True)
+        self.ui.listWidget.setDragDropMode(QAbstractItemView.InternalMove)
+        self.ui.listWidget.setDefaultDropAction(Qt.MoveAction)
         self.ui.listWidget.installEventFilter(self)
 
         if len(rList) > 0:
@@ -432,40 +437,188 @@ class ReadingOrderWidget(QWidget):
         super().changeEvent(event)
 
     def eventFilter(self, sender, event):
-        if sender == self.ui.listWidget and event.type() == QEvent.ChildRemoved:
-            logging.debug("eventFilter")
-            # self.ui.listWidget.takeItem(self.ui.listWidget.currentRow())
-            logging.debug("SN={}".format(self.getSerialNo()))
-            logging.debug("listCount={}".format(self.ui.listWidget.count()))
-            logging.debug("currentRow={}".format(self.ui.listWidget.currentRow()))
+        if not (event.type() in [QEvent.Paint, QEvent.Leave, QEvent.Enter, QEvent.FocusAboutToChange, QEvent.Timer]):
+            logging.debug(event.type())
 
-            if not self._afterDrop:
-                itemWidget = self.ui.listWidget.itemWidget(self.ui.listWidget.currentItem())
-                if itemWidget is None:
-                    logging.debug("itemWidget is None")
-                    roiList = self.roiList.copy()
-                    itemWOWidget = -1
-                    for i in range(self.ui.listWidget.count()):
-                        item = self.ui.listWidget.item(i)
-                        itemWidget = self.ui.listWidget.itemWidget(item)
-                        if itemWidget is not None:
-                            roiList.remove(itemWidget)
-                        else:
-                            itemWOWidget = i
-                    if len(roiList) == 1:
-                        super().eventFilter(sender, event)
-                        oldROI = roiList[0]
-                        roi = ReadingOrderItem(oldROI.getFullFilename(),
-                                               self.ui.listWidget.item(itemWOWidget),
-                                               self.getSerialNo())
-                        roi.ui.lineEdit.setText(oldROI.ui.lineEdit.text())
-                        self._listWidgetItemSerialNo += 1
-                        self.ui.listWidget.setItemWidget(self.ui.listWidget.item(itemWOWidget), roi)
-                        self.roiList.remove(oldROI)
-                        self.roiList.append(roi)
-                        self.resortItems()
-                        return True
+        if event.type() == QEvent.DragEnter:
+            logging.debug("QEvent.DragEnter")
+            logging.debug(sender)
+            logging.debug(event.source())
+            logging.debug(event.mimeData().formats())
+
+            # It's a ReadingOrderItem, not a SupplementalListWidgetItem
+            # if sender is self.ui.listWidget:
+            if isinstance(event.source(), ReadingOrderItem):
+                # self.ui.listWidget.setDragDropMode(QAbstractItemView.InternalMove)
+                event.setDropAction(Qt.MoveAction)
+                event.acceptProposedAction()
+                return True
+
+            # if event.mimeData().hasText() and event.mimeData().hasUrls():
+            #     logging.debug(event.mimeData().text())
+            #     for url in event.mimeData().urls():
+            #         logging.debug(url.toString())
+            #     # event.acceptProposedAction()
+            #     self.dragEnterEvent(event)
+            #     return True
+
+            #  It's a SupplementalListWidgetItem, not a ReadingOrderItem
+            elif isinstance(event.source(), SupplementalListWidgetItem):  # not event.mimeData().hasText() and event.mimeData().hasUrls():
+                # event.setDropAction(Qt.CopyAction)
+                # event.acceptProposedAction()
+                event.ignore()
+                return True
             else:
-                self._afterDrop = False
+                super().eventFilter(sender, event)
+                return True
+
+        elif event.type() == QEvent.Drop:
+            logging.debug("QEvent.Drop")
+            logging.debug(sender)
+            logging.debug(event.source())
+            logging.debug(event.mimeData().formats())
+
+            # It's a ReadingOrderItem, not a SupplementalListWidgetItem
+            if isinstance(event.source(), ReadingOrderItem):
+                event.acceptProposedAction()
+
+                # target = self.ui.listWidget.itemAt(event.pos())
+                # sources = self.ui.listWidget.selectedItems()
+                # logging.debug(event.pos())
+                # logging.debug(target)
+                # logging.debug(sources)
+
+                selection = self.ui.listWidget.selectedIndexes()
+                from_index = selection[0].row() if selection else -1
+                to_index = self.ui.listWidget.indexAt(event.pos()).row()
+                if (0 <= from_index < self.ui.listWidget.model().rowCount() and
+                        0 <= to_index < self.ui.listWidget.model().rowCount() and
+                        from_index != to_index):
+                    if from_index < to_index:
+                        for i in range(from_index, to_index):
+                            result = self.ui.listWidget.model().moveRow(self.ui.listWidget.rootIndex(),
+                                                                        i+1,
+                                                                        self.ui.listWidget.rootIndex(),
+                                                                        i)
+                            logging.debug("from {} to {} : {}".format(from_index, to_index, ("Fail", "Succeed")[result]))
+                    else:
+                        result = self.ui.listWidget.model().moveRow(self.ui.listWidget.rootIndex(),
+                                                                    from_index,
+                                                                    self.ui.listWidget.rootIndex(),
+                                                                    to_index)
+                        logging.debug("from {} to {} : {}".format(from_index, to_index, ("Fail", "Succeed")[result]))
+                    event.accept()
+                return True
+
+            #  It's a SupplementalListWidgetItem, not a ReadingOrderItem
+            elif isinstance(event.source(), SupplementalListWidgetItem):
+                event.ignore()
+                return True
+            else:
+                super().eventFilter(sender, event)
+                return True
+
+        # elif event.type() == QEvent.ChildRemoved:  # sender == self.ui.listWidget and
+        #     logging.debug("QEvent.ChildRemoved")
+        #     # self.ui.listWidget.takeItem(self.ui.listWidget.currentRow())
+        #     logging.debug("SN={}".format(self.getSerialNo()))
+        #     logging.debug("listCount={}".format(self.ui.listWidget.count()))
+        #     logging.debug("currentRow={}".format(self.ui.listWidget.currentRow()))
+        #
+        #     if not self._afterDrop:
+        #         itemWidget = self.ui.listWidget.itemWidget(self.ui.listWidget.currentItem())
+        #         if itemWidget is None:
+        #             logging.debug("itemWidget is None")
+        #             roiList = self.roiList.copy()
+        #             itemWOWidget = -1
+        #             for i in range(self.ui.listWidget.count()):
+        #                 item = self.ui.listWidget.item(i)
+        #                 itemWidget = self.ui.listWidget.itemWidget(item)
+        #                 if itemWidget is not None:
+        #                     roiList.remove(itemWidget)
+        #                 else:
+        #                     itemWOWidget = i
+        #             if len(roiList) == 1:
+        #                 super().eventFilter(sender, event)
+        #                 oldROI = roiList[0]
+        #                 roi = ReadingOrderItem(oldROI.getFullFilename(),
+        #                                        self.ui.listWidget.item(itemWOWidget),
+        #                                        self.getSerialNo())
+        #                 roi.ui.lineEdit.setText(oldROI.ui.lineEdit.text())
+        #                 self._listWidgetItemSerialNo += 1
+        #                 self.ui.listWidget.setItemWidget(self.ui.listWidget.item(itemWOWidget), roi)
+        #                 self.roiList.remove(oldROI)
+        #                 self.roiList.append(roi)
+        #                 self.resortItems()
+        #                 return True
+        #     else:
+        #         self._afterDrop = False
+        #         return False
 
         return super().eventFilter(sender, event)
+
+    # def dragEnterEvent(self, event):
+    #     logging.debug(event.source())
+    #     logging.debug(event.mimeData().formats())
+    #     # for mimeType in event.mimeData().formats():
+    #     #     logging.debug(mimeType)
+    #
+    #     # It's a ReadingOrderItem, not a SupplementalListWidgetItem
+    #     if event.mimeData().hasText() and event.mimeData().hasUrls():
+    #         logging.debug(event.mimeData().text())
+    #         for url in event.mimeData().urls():
+    #             logging.debug(url.toString())
+    #         event.acceptProposedAction()
+    #     else:
+    #         event.ignore()
+    #
+    # def dropEvent(self, event):
+    #     logging.debug(event.source())
+    #     logging.debug(event.mimeData().text())
+    #     for url in event.mimeData().urls():
+    #         logging.debug(url.toString())
+    #
+    #     event.setDropAction(Qt.MoveAction)
+    #     self.ui.listWidget.setDragDropMode(QAbstractItemView.InternalMove)
+    #     event.accept()
+
+
+
+    # def eventFilter(self, sender, event):
+    #     if sender == self.ui.listWidget and event.type() == QEvent.ChildRemoved:
+    #         logging.debug("eventFilter")
+    #         # self.ui.listWidget.takeItem(self.ui.listWidget.currentRow())
+    #         logging.debug("SN={}".format(self.getSerialNo()))
+    #         logging.debug("listCount={}".format(self.ui.listWidget.count()))
+    #         logging.debug("currentRow={}".format(self.ui.listWidget.currentRow()))
+    #
+    #         if not self._afterDrop:
+    #             itemWidget = self.ui.listWidget.itemWidget(self.ui.listWidget.currentItem())
+    #             if itemWidget is None:
+    #                 logging.debug("itemWidget is None")
+    #                 roiList = self.roiList.copy()
+    #                 itemWOWidget = -1
+    #                 for i in range(self.ui.listWidget.count()):
+    #                     item = self.ui.listWidget.item(i)
+    #                     itemWidget = self.ui.listWidget.itemWidget(item)
+    #                     if itemWidget is not None:
+    #                         roiList.remove(itemWidget)
+    #                     else:
+    #                         itemWOWidget = i
+    #                 if len(roiList) == 1:
+    #                     super().eventFilter(sender, event)
+    #                     oldROI = roiList[0]
+    #                     roi = ReadingOrderItem(oldROI.getFullFilename(),
+    #                                            self.ui.listWidget.item(itemWOWidget),
+    #                                            self.getSerialNo())
+    #                     roi.ui.lineEdit.setText(oldROI.ui.lineEdit.text())
+    #                     self._listWidgetItemSerialNo += 1
+    #                     self.ui.listWidget.setItemWidget(self.ui.listWidget.item(itemWOWidget), roi)
+    #                     self.roiList.remove(oldROI)
+    #                     self.roiList.append(roi)
+    #                     self.resortItems()
+    #                     return True
+    #         else:
+    #             self._afterDrop = False
+    #
+    #     return super().eventFilter(sender, event)

@@ -15,6 +15,8 @@ from toclistwidgetitem import TOCListWidgetItem
 from book import Audiobook, Helper 
 from alert import Alert
 from translucent import MaskWidget
+from readingorderitem import ReadingOrderItem
+from supplementallistwidgetitem import SupplementalListWidgetItem
 
 from ui_toclistwidget import Ui_TOCListWidget
 
@@ -63,6 +65,8 @@ class TOCListWidget(QWidget):
         self._afterDrop = False
         self.roiList = []
         self.startTime = ""
+
+        # self.setAcceptDrops(True)
 
     def getItemSize(self):
         return QSize(self._itemWidth, self._itemHeight)
@@ -457,39 +461,191 @@ class TOCListWidget(QWidget):
         self._afterDrop = True
 
     def eventFilter(self, sender, event):
-        if sender == self.ui.listWidget and event.type() == QEvent.ChildRemoved:
-            logging.debug("eventFilter")
+        if not (event.type() in [QEvent.Paint, QEvent.Leave, QEvent.Enter, QEvent.FocusAboutToChange, QEvent.Timer]):
+            logging.debug(event.type())
 
-            if not self._afterDrop:
-                itemWidget = self.ui.listWidget.itemWidget(self.ui.listWidget.currentItem())
-                if itemWidget is None:
-                    logging.debug("itemWidget is None")
-                    roiList = self.roiList.copy()
-                    itemWOWidget = -1
-                    for i in range(self.ui.listWidget.count()):
-                        item = self.ui.listWidget.item(i)
-                        itemWidget = self.ui.listWidget.itemWidget(item)
-                        if itemWidget is not None:
-                            roiList.remove(itemWidget)
-                        else:
-                            itemWOWidget = i
-                    if len(roiList) == 1:
-                        super().eventFilter(sender, event)
-                        oldROI = roiList[0]
-                        roi = TOCListWidgetItem(oldROI.getFullFilename(),
-                                                self.ui.listWidget.item(itemWOWidget),
-                                                self.getSerialNo(),
-                                                oldROI.getTitle())
-                        isEnabled, startTime = oldROI.getTimeStamps()
-                        roi.ui.timeEdit_Start.setEnabled(isEnabled)
-                        if isEnabled:
-                            roi.ui.timeEdit_Start.setTime(startTime)
-                        self._listWidgetItemSerialNo += 1
-                        self.ui.listWidget.setItemWidget(self.ui.listWidget.item(itemWOWidget), roi)
-                        self.roiList.remove(oldROI)
-                        self.roiList.append(roi)
-                        return True
+        if event.type() == QEvent.DragEnter:
+            logging.debug("QEvent.DragEnter")
+            logging.debug(sender)
+            logging.debug(event.source())
+            logging.debug(event.mimeData().formats())
+
+            if isinstance(event.source(), TOCListWidgetItem):
+                event.setDropAction(Qt.MoveAction)
+                event.acceptProposedAction()
+                return True
+
+            elif isinstance(event.source(), ReadingOrderItem):
+                # self.ui.listWidget.setDragDropMode(QAbstractItemView.InternalMove)
+                event.setDropAction(Qt.CopyAction)
+                event.acceptProposedAction()
+                return True
+
+            elif isinstance(event.source(), SupplementalListWidgetItem):
+                event.setDropAction(Qt.CopyAction)
+                event.acceptProposedAction()
+                return True
+
             else:
-                self._afterDrop = False
+                super().eventFilter(sender, event)
+                return True
 
+        elif event.type() == QEvent.Drop:
+            logging.debug("QEvent.Drop")
+            logging.debug(sender)
+            logging.debug(event.source())
+            logging.debug(event.mimeData().formats())
+
+            if isinstance(event.source(), TOCListWidgetItem):
+                event.acceptProposedAction()
+
+                selection = self.ui.listWidget.selectedIndexes()
+                from_index = selection[0].row() if selection else -1
+                to_index = self.ui.listWidget.indexAt(event.pos()).row()
+                if (0 <= from_index < self.ui.listWidget.model().rowCount() and
+                        0 <= to_index < self.ui.listWidget.model().rowCount() and
+                        from_index != to_index):
+                    if from_index < to_index:
+                        for i in range(from_index, to_index):
+                            result = self.ui.listWidget.model().moveRow(self.ui.listWidget.rootIndex(),
+                                                                        i + 1,
+                                                                        self.ui.listWidget.rootIndex(),
+                                                                        i)
+                            logging.debug("from {} to {} : {}".format(from_index, to_index, ("Fail", "Succeed")[result]))
+                    else:
+                        result = self.ui.listWidget.model().moveRow(self.ui.listWidget.rootIndex(),
+                                                                    from_index,
+                                                                    self.ui.listWidget.rootIndex(),
+                                                                    to_index)
+                        logging.debug("from {} to {} : {}".format(from_index, to_index, ("Fail", "Succeed")[result]))
+                    # event.accept()
+                return True
+
+            elif isinstance(event.source(), ReadingOrderItem):
+                event.acceptProposedAction()
+                self.add_Resource_to_TOC_triggered(event.mimeData().urls()[0].toString(),
+                                                   event.mimeData().text())
+                return True
+
+            elif isinstance(event.source(), SupplementalListWidgetItem):
+                # event.setDropAction(Qt.CopyAction)
+                event.acceptProposedAction()
+                self.add_Resource_to_TOC_triggered(event.mimeData().urls()[0].toString(),
+                                                   str())
+                return True
+
+            else:
+                super().eventFilter(sender, event)
+                return True
+
+        # if sender == self.ui.listWidget and event.type() == QEvent.ChildRemoved:
+        #     logging.debug("QEvent.ChildRemoved")
+        #
+        #     if not self._afterDrop:
+        #         itemWidget = self.ui.listWidget.itemWidget(self.ui.listWidget.currentItem())
+        #         if itemWidget is None:
+        #             logging.debug("itemWidget is None")
+        #             roiList = self.roiList.copy()
+        #             itemWOWidget = -1
+        #             for i in range(self.ui.listWidget.count()):
+        #                 item = self.ui.listWidget.item(i)
+        #                 itemWidget = self.ui.listWidget.itemWidget(item)
+        #                 if itemWidget is not None:
+        #                     roiList.remove(itemWidget)
+        #                 else:
+        #                     itemWOWidget = i
+        #             if len(roiList) == 1:
+        #                 super().eventFilter(sender, event)
+        #                 oldROI = roiList[0]
+        #                 roi = TOCListWidgetItem(oldROI.getFullFilename(),
+        #                                         self.ui.listWidget.item(itemWOWidget),
+        #                                         self.getSerialNo(),
+        #                                         oldROI.getTitle())
+        #                 isEnabled, startTime = oldROI.getTimeStamps()
+        #                 roi.ui.timeEdit_Start.setEnabled(isEnabled)
+        #                 if isEnabled:
+        #                     roi.ui.timeEdit_Start.setTime(startTime)
+        #                 self._listWidgetItemSerialNo += 1
+        #                 self.ui.listWidget.setItemWidget(self.ui.listWidget.item(itemWOWidget), roi)
+        #                 self.roiList.remove(oldROI)
+        #                 self.roiList.append(roi)
+        #                 return True
+        #     else:
+        #         self._afterDrop = False
+        #
         return super().eventFilter(sender, event)
+
+    # def dragEnterEvent(self, event):
+    #     logging.debug(event.source())
+    #     logging.debug(event.mimeData().formats())
+    #     for mimeType in event.mimeData().formats():
+    #         logging.debug(mimeType)
+    #
+    #     if isinstance(event.source(), ReadingOrderItem):  # event.mimeData().hasText() and event.mimeData().hasUrls():
+    #         logging.debug(event.mimeData().text())
+    #         for url in event.mimeData().urls():
+    #             logging.debug(url.toString())
+    #
+    #         event.setDropAction(Qt.CopyAction)
+    #         event.acceptProposedAction()
+    #     elif isinstance(event.source(), SupplementalListWidgetItem):
+    #         event.setDropAction(Qt.CopyAction)
+    #         event.acceptProposedAction()
+    #     else:
+    #         super().dragEnterEvent(event)
+    #
+    # def dropEvent(self, event):
+    #     logging.debug(event.source())
+    #     logging.debug(event.mimeData().text())
+    #     for url in event.mimeData().urls():
+    #         logging.debug(url.toString())
+    #     if isinstance(event.source(), ReadingOrderItem):  # event.mimeData().hasText() and event.mimeData().hasUrls():
+    #         event.setDropAction(Qt.CopyAction)
+    #         event.accept()
+    #         self.add_Resource_to_TOC_triggered(event.mimeData().urls()[0].toString(),
+    #                                            event.mimeData().text())
+    #     elif isinstance(event.source(), SupplementalListWidgetItem):
+    #         event.setDropAction(Qt.CopyAction)
+    #         event.accept()
+    #         self.add_Resource_to_TOC_triggered(event.mimeData().urls()[0].toString(),
+    #                                            str())
+    #     else:
+    #         super().dropEvent(event)
+
+    # def eventFilter(self, sender, event):
+    #     if sender == self.ui.listWidget and event.type() == QEvent.ChildRemoved:
+    #         logging.debug("eventFilter")
+    #
+    #         if not self._afterDrop:
+    #             itemWidget = self.ui.listWidget.itemWidget(self.ui.listWidget.currentItem())
+    #             if itemWidget is None:
+    #                 logging.debug("itemWidget is None")
+    #                 roiList = self.roiList.copy()
+    #                 itemWOWidget = -1
+    #                 for i in range(self.ui.listWidget.count()):
+    #                     item = self.ui.listWidget.item(i)
+    #                     itemWidget = self.ui.listWidget.itemWidget(item)
+    #                     if itemWidget is not None:
+    #                         roiList.remove(itemWidget)
+    #                     else:
+    #                         itemWOWidget = i
+    #                 if len(roiList) == 1:
+    #                     super().eventFilter(sender, event)
+    #                     oldROI = roiList[0]
+    #                     roi = TOCListWidgetItem(oldROI.getFullFilename(),
+    #                                             self.ui.listWidget.item(itemWOWidget),
+    #                                             self.getSerialNo(),
+    #                                             oldROI.getTitle())
+    #                     isEnabled, startTime = oldROI.getTimeStamps()
+    #                     roi.ui.timeEdit_Start.setEnabled(isEnabled)
+    #                     if isEnabled:
+    #                         roi.ui.timeEdit_Start.setTime(startTime)
+    #                     self._listWidgetItemSerialNo += 1
+    #                     self.ui.listWidget.setItemWidget(self.ui.listWidget.item(itemWOWidget), roi)
+    #                     self.roiList.remove(oldROI)
+    #                     self.roiList.append(roi)
+    #                     return True
+    #         else:
+    #             self._afterDrop = False
+    #
+    #     return super().eventFilter(sender, event)

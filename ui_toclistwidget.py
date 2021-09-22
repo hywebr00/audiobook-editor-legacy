@@ -17,7 +17,7 @@ class Ui_TOCListWidget(object):
     def setupUi(self, TOCListWidget):
         if not TOCListWidget.objectName():
             TOCListWidget.setObjectName(u"TOCListWidget")
-        TOCListWidget.resize(256, 310)
+        TOCListWidget.resize(256, 366)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -25,6 +25,7 @@ class Ui_TOCListWidget(object):
         TOCListWidget.setSizePolicy(sizePolicy)
         TOCListWidget.setMinimumSize(QSize(256, 0))
         TOCListWidget.setMaximumSize(QSize(256, 16777215))
+        TOCListWidget.setAcceptDrops(True)
         TOCListWidget.setStyleSheet(u"background: #404040;\n"
 "\n"
 "")
@@ -75,10 +76,14 @@ class Ui_TOCListWidget(object):
         self.listWidget = QListWidget(TOCListWidget)
         self.listWidget.setObjectName(u"listWidget")
         self.listWidget.setEnabled(False)
-        sizePolicy.setHeightForWidth(self.listWidget.sizePolicy().hasHeightForWidth())
-        self.listWidget.setSizePolicy(sizePolicy)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.listWidget.sizePolicy().hasHeightForWidth())
+        self.listWidget.setSizePolicy(sizePolicy2)
         self.listWidget.setMinimumSize(QSize(256, 0))
         self.listWidget.setMaximumSize(QSize(256, 16777215))
+        self.listWidget.setAcceptDrops(True)
         self.listWidget.setAutoFillBackground(True)
         self.listWidget.setStyleSheet(u"QListWidget {\n"
 "	padding: 0px;\n"
@@ -147,7 +152,7 @@ class Ui_TOCListWidget(object):
         self.listWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.listWidget.setProperty("showDropIndicator", False)
         self.listWidget.setDragDropMode(QAbstractItemView.InternalMove)
-        self.listWidget.setDefaultDropAction(Qt.IgnoreAction)
+        self.listWidget.setDefaultDropAction(Qt.CopyAction)
         self.listWidget.setSpacing(0)
         self.listWidget.setItemAlignment(Qt.AlignLeading)
 

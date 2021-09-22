@@ -111,6 +111,9 @@ class ReadingOrderItem(QWidget):
     
     def getFullFilename(self):
         return self._fullFilename
+
+    def getLabelIndex(self):
+        return self.ui.label_Index.text()
     
     @Slot()
     def on_pushButton_Add_clicked(self):
@@ -173,3 +176,19 @@ class ReadingOrderItem(QWidget):
 
     def getItem(self):
         return self._listItem
+
+    def mousePressEvent(self, event):
+        logging.debug('mousePressEvent')
+        super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event):
+        logging.debug('mouseMoveEvent')
+        mimeData = QMimeData()
+        mimeData.setText(self.ui.lineEdit.text())
+        mimeData.setUrls([QUrl(self.getFullFilename())])
+
+        drag = QDrag(self)
+        drag.setMimeData(mimeData)
+        # drag.setHotSpot(event.pos() - self.rect().topLeft())
+
+        dropAction = drag.exec_(Qt.CopyAction | Qt.MoveAction)

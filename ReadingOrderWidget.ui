@@ -28,6 +28,9 @@
     <height>16777215</height>
    </size>
   </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -1046,7 +1049,7 @@ color: #5AB0FF;</string>
         <string notr="true"/>
        </property>
        <property name="autoFillBackground">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="styleSheet">
         <string notr="true">/*
@@ -1095,7 +1098,7 @@ QListWidget::item:hover:!active,
         <bool>false</bool>
        </property>
        <property name="dragEnabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="dragDropOverwriteMode">
         <bool>false</bool>
@@ -1110,13 +1113,13 @@ QListWidget::item:hover:!active,
         <enum>QAbstractItemView::SelectItems</enum>
        </property>
        <property name="movement">
-        <enum>QListView::Free</enum>
+        <enum>QListView::Static</enum>
        </property>
        <property name="spacing">
         <number>0</number>
        </property>
        <property name="selectionRectVisible">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="sortingEnabled">
         <bool>false</bool>

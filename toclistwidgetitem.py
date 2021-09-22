@@ -9,7 +9,7 @@ import mimetypes
 from multipledispatch import dispatch
 
 from PySide2.QtCore import *
-# from PySide2.QtGui import *
+from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 from ui_toclistwidgetitem import Ui_TOCListWidgetItem
@@ -118,6 +118,22 @@ class TOCListWidgetItem(QWidget):
             self.ui.label_Href.setText((self._fullFilename.replace(book.getBookDir() + '/', ""),
                                         self._fullFilename)[self._fullFilename.startswith('http')])
         super().changeEvent(event)
+
+    def mousePressEvent(self, event):
+        logging.debug('mousePressEvent')
+        super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event):
+        logging.debug('mouseMoveEvent')
+        mimeData = QMimeData()
+        mimeData.setText(self.ui.lineEdit_Title.text())
+        mimeData.setUrls([QUrl(self.getFullFilename())])
+
+        drag = QDrag(self)
+        drag.setMimeData(mimeData)
+        # drag.setHotSpot(event.pos() - self.rect().topLeft())
+
+        dropAction = drag.exec_(Qt.CopyAction | Qt.MoveAction)
 
 
 

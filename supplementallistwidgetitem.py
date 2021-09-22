@@ -42,7 +42,6 @@ class SupplementalListWidgetItem(QWidget):
         
         mime, encoding = mimetypes.guess_type(fullFilename)
 
-
         # kind = filetype.guess(fullFilename)
             
         if mime is None:
@@ -80,10 +79,9 @@ class SupplementalListWidgetItem(QWidget):
                 info = QFileInfo(fullFilename)
                 displayFilename = shortFilename[0:5] + ".." + info.suffix()
 
-
         logging.debug("displayFilename = " + displayFilename)    
         self.ui.lineEdit.setText(displayFilename)
-        #self.ui.lineEdit.setText(fullFilename.replace(book.getBookDir() + '/', ""))
+        # self.ui.lineEdit.setText(fullFilename.replace(book.getBookDir() + '/', ""))
         
         self._serialNo = serialNo
         self._listItem = item        
@@ -111,7 +109,6 @@ class SupplementalListWidgetItem(QWidget):
         self._listItem.listWidget().parent().removeItem(self._listItem)
         QFile.remove(self.getFullFilename())
 
-    
     @Slot()
     def on_pushButton_Add_clicked(self):
         logging.debug("ListWidgetItem : on_pushButton_Add_clicked")
@@ -134,4 +131,20 @@ class SupplementalListWidgetItem(QWidget):
                                               self._translate("SupplementalListWidgetItem", "Add this item to TOC") +
                                               "</p>")
         super().changeEvent(event)
+
+    def mousePressEvent(self, event):
+        logging.debug('mousePressEvent')
+        super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event):
+        logging.debug('mouseMoveEvent')
+        mimeData = QMimeData()
+        # mimeData.setText(self.getFullFilename())
+        mimeData.setUrls([QUrl(self.getFullFilename())])
+
+        drag = QDrag(self)
+        drag.setMimeData(mimeData)
+        # drag.setHotSpot(event.pos() - self.rect().topLeft())
+
+        dropAction = drag.exec_(Qt.CopyAction | Qt.MoveAction)
 

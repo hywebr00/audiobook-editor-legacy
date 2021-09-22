@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>256</width>
-    <height>310</height>
+    <height>366</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -27,6 +27,9 @@
     <width>256</width>
     <height>16777215</height>
    </size>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -128,7 +131,7 @@ background: #404040;
         <bool>false</bool>
        </property>
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -144,6 +147,9 @@ background: #404040;
          <width>256</width>
          <height>16777215</height>
         </size>
+       </property>
+       <property name="acceptDrops">
+        <bool>true</bool>
        </property>
        <property name="autoFillBackground">
         <bool>true</bool>
@@ -231,7 +237,7 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   // 当滚动条滚
         <enum>QAbstractItemView::InternalMove</enum>
        </property>
        <property name="defaultDropAction">
-        <enum>Qt::IgnoreAction</enum>
+        <enum>Qt::CopyAction</enum>
        </property>
        <property name="spacing">
         <number>0</number>

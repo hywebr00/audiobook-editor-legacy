@@ -165,14 +165,19 @@ class Ui_SupplementalListWidgetWithWidgets(object):
 "spacing: 0px;\n"
 "\n"
 "")
-        self.listWidget.setFrameShape(QFrame.NoFrame)
+        self.listWidget.setFrameShape(QFrame.StyledPanel)
         self.listWidget.setLineWidth(0)
         self.listWidget.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.listWidget.setAutoScrollMargin(0)
         self.listWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.listWidget.setProperty("showDropIndicator", False)
+        self.listWidget.setDragEnabled(True)
+        self.listWidget.setDragDropMode(QAbstractItemView.InternalMove)
+        self.listWidget.setDefaultDropAction(Qt.MoveAction)
         self.listWidget.setResizeMode(QListView.Fixed)
         self.listWidget.setSpacing(0)
+        self.listWidget.setUniformItemSizes(False)
+        self.listWidget.setSelectionRectVisible(True)
         self.listWidget.setItemAlignment(Qt.AlignHCenter)
 
         self.verticalLayout.addWidget(self.listWidget, 0, Qt.AlignHCenter)

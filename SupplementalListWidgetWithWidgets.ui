@@ -313,7 +313,7 @@ spacing: 0px;
 </string>
        </property>
        <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
+        <enum>QFrame::StyledPanel</enum>
        </property>
        <property name="lineWidth">
         <number>0</number>
@@ -330,11 +330,26 @@ spacing: 0px;
        <property name="showDropIndicator" stdset="0">
         <bool>false</bool>
        </property>
+       <property name="dragEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="dragDropMode">
+        <enum>QAbstractItemView::InternalMove</enum>
+       </property>
+       <property name="defaultDropAction">
+        <enum>Qt::MoveAction</enum>
+       </property>
        <property name="resizeMode">
         <enum>QListView::Fixed</enum>
        </property>
        <property name="spacing">
         <number>0</number>
+       </property>
+       <property name="uniformItemSizes">
+        <bool>false</bool>
+       </property>
+       <property name="selectionRectVisible">
+        <bool>true</bool>
        </property>
        <property name="itemAlignment">
         <set>Qt::AlignHCenter</set>

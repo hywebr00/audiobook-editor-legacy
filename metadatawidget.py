@@ -11,7 +11,8 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from ui_metadatawidget import Ui_MetadataWidget
+# from ui_metadatawidget import Ui_MetadataWidget
+from ui_metadatawidgetwithscrollarea import Ui_MetadataWidget
 from alert import Alert, AlertWithButtons
 from translucent import MaskWidget
 # import resources_rc

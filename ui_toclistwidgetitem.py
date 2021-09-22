@@ -74,6 +74,7 @@ class Ui_TOCListWidgetItem(object):
         self.lineEdit_Title.setMinimumSize(QSize(180, 20))
         self.lineEdit_Title.setMaximumSize(QSize(180, 20))
         self.lineEdit_Title.setFont(font1)
+        self.lineEdit_Title.setAcceptDrops(False)
         self.lineEdit_Title.setStyleSheet(u"QLineEdit {\n"
 "	color: #FFFFFF;\n"
 "\n"

@@ -26,6 +26,7 @@ class Ui_ReadingOrderWidget(object):
         ReadingOrderWidget.setSizePolicy(sizePolicy)
         ReadingOrderWidget.setMinimumSize(QSize(436, 0))
         ReadingOrderWidget.setMaximumSize(QSize(436, 16777215))
+        ReadingOrderWidget.setAcceptDrops(True)
         ReadingOrderWidget.setStyleSheet(u"background: #333333;\n"
 "box-shadow: inset 1px 0px 0px rgba(0, 0, 0, 0.25);")
         self.gridLayout = QGridLayout(ReadingOrderWidget)
@@ -547,7 +548,7 @@ class Ui_ReadingOrderWidget(object):
 #if QT_CONFIG(tooltip)
         self.listWidget.setToolTip(u"")
 #endif // QT_CONFIG(tooltip)
-        self.listWidget.setAutoFillBackground(False)
+        self.listWidget.setAutoFillBackground(True)
         self.listWidget.setStyleSheet(u"/*\n"
 "QListWidget {\n"
 "	border: 0px;\n"
@@ -578,14 +579,14 @@ class Ui_ReadingOrderWidget(object):
         self.listWidget.setAutoScrollMargin(0)
         self.listWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.listWidget.setProperty("showDropIndicator", False)
-        self.listWidget.setDragEnabled(False)
+        self.listWidget.setDragEnabled(True)
         self.listWidget.setDragDropOverwriteMode(False)
         self.listWidget.setDragDropMode(QAbstractItemView.InternalMove)
         self.listWidget.setDefaultDropAction(Qt.MoveAction)
         self.listWidget.setSelectionBehavior(QAbstractItemView.SelectItems)
-        self.listWidget.setMovement(QListView.Free)
+        self.listWidget.setMovement(QListView.Static)
         self.listWidget.setSpacing(0)
-        self.listWidget.setSelectionRectVisible(False)
+        self.listWidget.setSelectionRectVisible(True)
         self.listWidget.setSortingEnabled(False)
 
         self.verticalLayout.addWidget(self.listWidget)

@@ -102,7 +102,7 @@ QLineEdit:disabled
      <x>20</x>
      <y>7</y>
      <width>56</width>
-     <height>20</height>
+     <height>16</height>
     </rect>
    </property>
    <property name="styleSheet">

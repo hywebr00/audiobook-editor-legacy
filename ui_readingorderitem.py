@@ -82,6 +82,7 @@ class Ui_ReadingOrderItem(object):
 "\n"
 "\n"
 "/* margin: 0px 0px; */")
+        self.label_Index.setText(u"0")
         self.label_Index.setAlignment(Qt.AlignCenter)
         self.frame = QFrame(ReadingOrderItem)
         self.frame.setObjectName(u"frame")
@@ -193,6 +194,7 @@ class Ui_ReadingOrderItem(object):
         font1.setItalic(False)
         font1.setWeight(50)
         self.lineEdit.setFont(font1)
+        self.lineEdit.setAcceptDrops(False)
         self.lineEdit.setStyleSheet(u"QLineEdit {\n"
 "	color: #FFFFFF;\n"
 "\n"
@@ -248,7 +250,6 @@ class Ui_ReadingOrderItem(object):
 
     def retranslateUi(self, ReadingOrderItem):
         ReadingOrderItem.setWindowTitle(QCoreApplication.translate("ReadingOrderItem", u"Form", None))
-        self.label_Index.setText(QCoreApplication.translate("ReadingOrderItem", u"0", None))
         self.label_Drag.setText("")
 #if QT_CONFIG(tooltip)
         self.pushButton_Add.setToolTip("")
