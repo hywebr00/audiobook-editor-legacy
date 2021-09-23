@@ -762,12 +762,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ReadingOrderItem.ui" line="371"/>
         <source>Please input title...</source>
-        <translation>請輸入書名</translation>
+        <translation>請輸入標題</translation>
     </message>
     <message>
         <location filename="../ReadingOrderItem.ui" line="450"/>
         <source>*.mp3</source>
-        <translation type="unfinished"></translation>
+        <translation>*.mp3</translation>
     </message>
 </context>
 <context>

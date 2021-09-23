@@ -562,6 +562,9 @@ margin: 0px;</string>
      <pointsize>13</pointsize>
     </font>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="action_Open">
    <property name="text">
@@ -572,6 +575,9 @@ margin: 0px;</string>
      <family>Noto Sans TC</family>
      <pointsize>13</pointsize>
     </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="action_Close">
@@ -668,6 +674,9 @@ margin: 0px;</string>
      <pointsize>13</pointsize>
     </font>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
    <property name="iconVisibleInMenu">
     <bool>false</bool>
    </property>
@@ -682,6 +691,9 @@ margin: 0px;</string>
      <pointsize>13</pointsize>
     </font>
    </property>
+   <property name="shortcut">
+    <string>Shift+F4</string>
+   </property>
   </action>
   <action name="action_Save">
    <property name="text">
@@ -692,6 +704,9 @@ margin: 0px;</string>
      <family>Noto Sans TC</family>
      <pointsize>13</pointsize>
     </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="action_Help">

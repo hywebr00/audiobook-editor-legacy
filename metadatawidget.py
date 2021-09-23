@@ -30,6 +30,34 @@ class MetadataWidget(QWidget):
         self.mainWindow = mainWindow
         self.ui = Ui_MetadataWidget()
         self.ui.setupUi(self)
+
+        # self.ui.label_5.setMinimumWidth(self.ui.label_5.sizeHint().width())
+        # self.ui.label_5.setMaximumWidth(self.ui.label_5.sizeHint().width())
+
+        self.ui.label_5.adjustSize()
+        self.ui.label_12.setGeometry(self.ui.label_5.geometry().x() + self.ui.label_5.geometry().width() + 7,
+                                     self.ui.label_12.geometry().y(),
+                                     self.ui.label_12.geometry().width(),
+                                     self.ui.label_12.geometry().height())
+
+        self.ui.label_15.adjustSize()
+        self.ui.label_17.setGeometry(self.ui.label_15.geometry().x() + self.ui.label_15.geometry().width() + 7,
+                                     self.ui.label_17.geometry().y(),
+                                     self.ui.label_17.geometry().width(),
+                                     self.ui.label_17.geometry().height())
+
+        self.ui.label_11.adjustSize()
+        self.ui.label_18.setGeometry(self.ui.label_11.geometry().x() + self.ui.label_11.geometry().width() + 7,
+                                     self.ui.label_18.geometry().y(),
+                                     self.ui.label_18.geometry().width(),
+                                     self.ui.label_18.geometry().height())
+
+        # self.ui.label_15.setMinimumWidth(self.ui.label_15.sizeHint().width())
+        # self.ui.label_15.setMaximumWidth(self.ui.label_15.sizeHint().width())
+        #
+        # self.ui.label_11.setMinimumWidth(self.ui.label_11.sizeHint().width())
+        # self.ui.label_11.setMaximumWidth(self.ui.label_11.sizeHint().width())
+
         self._translate = QCoreApplication.translate
         _translate = self._translate
 
@@ -49,6 +77,25 @@ class MetadataWidget(QWidget):
         self.mainWindow = mainWindow
         self.ui = Ui_MetadataWidget()
         self.ui.setupUi(self)
+
+        self.ui.label_5.adjustSize()
+        self.ui.label_12.setGeometry(self.ui.label_5.geometry().x() + self.ui.label_5.geometry().width() + 7,
+                                     self.ui.label_12.geometry().y(),
+                                     self.ui.label_12.geometry().width(),
+                                     self.ui.label_12.geometry().height())
+
+        self.ui.label_15.adjustSize()
+        self.ui.label_17.setGeometry(self.ui.label_15.geometry().x() + self.ui.label_15.geometry().width() + 7,
+                                     self.ui.label_17.geometry().y(),
+                                     self.ui.label_17.geometry().width(),
+                                     self.ui.label_17.geometry().height())
+
+        self.ui.label_11.adjustSize()
+        self.ui.label_18.setGeometry(self.ui.label_11.geometry().x() + self.ui.label_11.geometry().width() + 7,
+                                     self.ui.label_18.geometry().y(),
+                                     self.ui.label_18.geometry().width(),
+                                     self.ui.label_18.geometry().height())
+
         self._translate = QCoreApplication.translate
         
         self._duration = 0.0
@@ -235,7 +282,38 @@ class MetadataWidget(QWidget):
             logging.debug("Language changed")
             self.ui.retranslateUi(self)
 
+            self.ui.label_5.adjustSize()
+            self.ui.label_12.setGeometry(self.ui.label_5.geometry().x() + self.ui.label_5.geometry().width() + 7,
+                                         self.ui.label_12.geometry().y(),
+                                         self.ui.label_12.geometry().width(),
+                                         self.ui.label_12.geometry().height())
+
+            self.ui.label_15.adjustSize()
+            self.ui.label_17.setGeometry(self.ui.label_15.geometry().x() + self.ui.label_15.geometry().width() + 7,
+                                         self.ui.label_17.geometry().y(),
+                                         self.ui.label_17.geometry().width(),
+                                         self.ui.label_17.geometry().height())
+
+            self.ui.label_11.adjustSize()
+            self.ui.label_18.setGeometry(self.ui.label_11.geometry().x() + self.ui.label_11.geometry().width() + 7,
+                                         self.ui.label_18.geometry().y(),
+                                         self.ui.label_18.geometry().width(),
+                                         self.ui.label_18.geometry().height())
+
         super().changeEvent(event)
+
+if __name__ == "__main__":
+    import os
+    import sys
+    os.environ['QT_MAC_WANTS_LAYER'] = '1'
+
+    app = QApplication(sys.argv)
+
+    mw = MetadataWidget(QMainWindow())
+    mw.show()
+
+    sys.exit(app.exec_())
+
 
         
         

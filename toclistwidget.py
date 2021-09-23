@@ -523,14 +523,20 @@ class TOCListWidget(QWidget):
 
             elif isinstance(event.source(), ReadingOrderItem):
                 event.acceptProposedAction()
-                self.add_Resource_to_TOC_triggered(event.mimeData().urls()[0].toString(),
+
+                # No matter what type of URL you got, encode them by QUrl::toEncode and display them with
+                # QUrl::fromPercentEncoding when necessary.
+                url = QUrl.fromPercentEncoding(event.mimeData().urls()[0].toEncoded())
+                url = (url[0].upper() + url[1:len(url)], url)[url.startswith('http')]
+                self.add_Resource_to_TOC_triggered(url,
                                                    event.mimeData().text())
                 return True
 
             elif isinstance(event.source(), SupplementalListWidgetItem):
-                # event.setDropAction(Qt.CopyAction)
                 event.acceptProposedAction()
-                self.add_Resource_to_TOC_triggered(event.mimeData().urls()[0].toString(),
+                url = QUrl.fromPercentEncoding(event.mimeData().urls()[0].toEncoded())
+                url = (url[0].upper() + url[1:len(url)], url)[url.startswith('http')]
+                self.add_Resource_to_TOC_triggered(url,
                                                    str())
                 return True
 
