@@ -22,7 +22,6 @@ from supplementallistwidgetwithwidgets import SupplementalListWidgetWithWidgets
 from toclistwidget import TOCListWidget
 from coverpreviewwidget import CoverPreviewWidget
 from book import Audiobook, Helper
-from pyqt5license import Dialog_PyQt5License
 from validator import Validator
 from alert import Alert, AlertWithButtons
 from translucent import MaskWidget
@@ -119,8 +118,6 @@ class MainWindow(QMainWindow):
         self.settings = QSettings()
         self.recentFilesOrDirectoriesInSettings = ''
 
-        self.pyqt5License = None
-
         self.ui.action_EN.triggered.connect(
             lambda: self.changeUILanguage('EN', self.ui.action_EN))
         self.ui.action_TC.triggered.connect(
@@ -159,7 +156,6 @@ class MainWindow(QMainWindow):
         self.ui.dockWidget_SupplementalList.setTitleBarWidget(QWidget(None))
 
         # self.ui.action_Qt.triggered.connect(self.on_action_Qt_triggered)
-        # self.ui.action_PyQt5.triggered.connect(self.on_action_PyQt5_triggered)
         self.book = Audiobook.getInstance()
 
         layout = QVBoxLayout(self.ui.tab_Metadata)
@@ -210,8 +206,6 @@ class MainWindow(QMainWindow):
         self.settings = QSettings()
         self.recentFilesOrDirectoriesInSettings = ''
 
-        self.pyqt5License = None
-
         self.ui.action_EN.triggered.connect(
             lambda: self.changeUILanguage('EN', self.ui.action_EN))
         self.ui.action_TC.triggered.connect(
@@ -233,14 +227,9 @@ class MainWindow(QMainWindow):
         self.mask.close()
 
     @Slot()
-    def on_action_PyQt5_triggered(self):
-        self.pyqt5License = Dialog_PyQt5License(self)
-        self.pyqt5License.exec_()
-
-    @Slot()
     def on_action_Thanks_triggered(self):
         self._openAlertWindow("backports.tempfile, beautifulsoup4, html5lib, jsonschema, multipledispatch, tinytag,"
-                              " PyQt5, Python, Qt5, regex, requests, urllib3",
+                              " PySide2, Python, Qt5, regex, requests, urllib3",
                               self._translate("MainWindow",
                                               "Special thanks"))
 
@@ -250,6 +239,10 @@ class MainWindow(QMainWindow):
         self._openAlertWindow("<center>" + app.applicationVersion() + "</center>",
                               self._translate("MainWindow",
                                               "Version information"))
+
+    @Slot()
+    def on_action_Issues_triggered(self):
+        QDesktopServices.openUrl(QUrl('https://github.com/hywebr00/audiobook-editor/issues'))
 
     def _openAlertWindow(self, str_Msg, str_Title):
         self.mask = MaskWidget(self)

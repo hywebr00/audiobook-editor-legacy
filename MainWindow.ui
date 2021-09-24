@@ -136,6 +136,8 @@
     <addaction name="separator"/>
     <addaction name="action_Version"/>
     <addaction name="action_Thanks"/>
+    <addaction name="action_Issues"/>
+    <addaction name="action_License"/>
    </widget>
    <addaction name="menu_File"/>
    <addaction name="menu_Project"/>
@@ -816,6 +818,37 @@ margin: 0px;</string>
    </property>
    <property name="menuRole">
     <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_Issues">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Issues</string>
+   </property>
+   <property name="toolTip">
+    <string>Issues Report</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_License">
+   <property name="text">
+    <string>&amp;License</string>
+   </property>
+   <property name="toolTip">
+    <string>License</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Noto Sans TC</family>
+     <pointsize>13</pointsize>
+    </font>
    </property>
   </action>
  </widget>

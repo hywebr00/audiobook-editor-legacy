@@ -1,4 +1,5 @@
 REM				pylupdate5 -noobsolete appTransConfiguration.txt
+REM				DO NOT use pyside2-lupdate! It would lose some words in .py files under indirect citation.
 
 TRANSLATIONS	=	appLang_TC.ts \
 					appLang_EN.ts
@@ -13,9 +14,9 @@ SOURCES 		+=	../main.py \
 					../mainwindow.py \
 					../metadatawidget.py \
 					../openedlist.py \
-					../pyqt5license.py \
 					../readingorderitem.py \
 					../readingorderwidget.py \
+					../startingpanel.py \
 					../startingpanelwithopenedlist.py \
 					../supplementallistwidgetitem.py \
 					../supplementallistwidgettitlebar.py \
@@ -33,9 +34,9 @@ FORMS			=	../Alert.ui \
 					../LoadingWidget.ui \
 					../MainWindow.ui \
 					../MetadataWidget.ui \
+					../MetadataWidgetWithScrollArea.ui \
 					../OpenedList.ui \
 					../OpenedListItem.ui \
-					../PyQt5License.ui \
 					../ReadingOrderItem.ui \
 					../ReadingOrderWidget.ui \
 					../StartingPanel.ui \
