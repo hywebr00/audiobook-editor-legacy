@@ -23,6 +23,20 @@ class CreateNewWizard(QMainWindow):
 
         self.ui = Ui_CreateNewWizard()
         self.ui.setupUi(self)
+
+        self.ui.label_3.adjustSize()
+        self.ui.label_9.setGeometry(self.ui.label_3.geometry().x() + self.ui.label_3.geometry().width() + 7,
+                                     self.ui.label_9.geometry().y(),
+                                     self.ui.label_9.geometry().width(),
+                                     self.ui.label_9.geometry().height())
+
+        self.ui.label_4.adjustSize()
+        self.ui.label_10.setGeometry(self.ui.label_4.geometry().x() + self.ui.label_4.geometry().width() + 7,
+                                     self.ui.label_10.geometry().y(),
+                                     self.ui.label_10.geometry().width(),
+                                     self.ui.label_10.geometry().height())
+
+
         # REMOVE TITLE BAR
         self.setWindowFlag(Qt.FramelessWindowHint)
         self._translate = QCoreApplication.translate
@@ -85,6 +99,8 @@ class CreateNewWizard(QMainWindow):
             delta = QPoint(event.globalPos() - self.oldPos)
             self.move(self.x() + delta.x(), self.y() + delta.y())
             self.oldPos = event.globalPos()
+
+
 
 
 

@@ -1,4 +1,4 @@
-The following packages and modules are used by this application. Their respective license is also listed here.
+The following packages and modules are used by this application. Their respective licenses are also listed here.
 
 backports.tempfile,	Python Software Foundation License
 beautifulsoup4, MIT License
