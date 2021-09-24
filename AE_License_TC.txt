@@ -7,7 +7,7 @@ jsonschema, MIT License
 multipledispatch, BSD
 tinytag, MIT License
 PySide, LGPL v3
-Python 3.7, GPL-compatible
+Python 3.7, Python Software Foundation License
 Qt5, LGPL v3
 regex, Apache Software License
 requests, Apache Software License

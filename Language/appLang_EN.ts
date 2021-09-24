@@ -379,7 +379,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.py" line="54"/>
+        <location filename="../mainwindow.py" line="239"/>
         <source>Audiobook Editor</source>
         <translation type="unfinished"></translation>
     </message>
@@ -429,24 +429,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.py" line="242"/>
+        <location filename="../mainwindow.py" line="231"/>
         <source>Special thanks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.py" line="250"/>
+        <location filename="../mainwindow.py" line="239"/>
         <source>Version information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.py" line="439"/>
+        <location filename="../mainwindow.py" line="434"/>
         <source>Please wait...
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.py" line="439"/>
+        <location filename="../mainwindow.py" line="434"/>
         <source>Validation begins:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.py" line="239"/>
+        <source>Hyweb Technology CO., LTD.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -236,13 +236,19 @@ class MainWindow(QMainWindow):
     @Slot()
     def on_action_Version_triggered(self):
         app = QApplication.instance()
-        self._openAlertWindow("<center>" + app.applicationVersion() + "</center>",
+        self._openAlertWindow("<center>" + self._translate("MainWindow", "Audiobook Editor") + "</center>" +
+                              "<center>" + app.applicationVersion() + "</center>" +
+                              "<center>" + self._translate("MainWindow", "Hyweb Technology CO., LTD.") + "</center>",
                               self._translate("MainWindow",
                                               "Version information"))
 
     @Slot()
     def on_action_Issues_triggered(self):
         QDesktopServices.openUrl(QUrl('https://github.com/hywebr00/audiobook-editor/issues'))
+
+    @Slot()
+    def on_action_License_triggered(self):
+        QDesktopServices.openUrl(QUrl('license.html'))
 
     def _openAlertWindow(self, str_Msg, str_Title):
         self.mask = MaskWidget(self)

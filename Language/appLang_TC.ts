@@ -250,12 +250,12 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.py" line="242"/>
+        <location filename="../mainwindow.py" line="231"/>
         <source>Special thanks</source>
         <translation>特別感謝</translation>
     </message>
     <message>
-        <location filename="../mainwindow.py" line="250"/>
+        <location filename="../mainwindow.py" line="239"/>
         <source>Version information</source>
         <translation>版本資訊</translation>
     </message>
@@ -390,18 +390,18 @@
         <translation>感謝</translation>
     </message>
     <message>
-        <location filename="../mainwindow.py" line="439"/>
+        <location filename="../mainwindow.py" line="434"/>
         <source>Please wait...
 </source>
         <translation>請稍候...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.py" line="439"/>
+        <location filename="../mainwindow.py" line="434"/>
         <source>Validation begins:</source>
         <translation>開始進行驗證:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.py" line="54"/>
+        <location filename="../mainwindow.py" line="239"/>
         <source>Audiobook Editor</source>
         <translation>有聲書編輯器</translation>
     </message>
@@ -449,6 +449,11 @@
         <location filename="../MainWindow.ui" line="845"/>
         <source>License</source>
         <translation>授權資訊</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.py" line="239"/>
+        <source>Hyweb Technology CO., LTD.</source>
+        <translation>凌網科技</translation>
     </message>
 </context>
 <context>
