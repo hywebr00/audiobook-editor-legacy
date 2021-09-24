@@ -54,7 +54,7 @@ class TOCListWidget(QWidget):
 
         self.ui.listWidget.model().rowsMoved.connect(self.afterDrop)
         self.ui.listWidget.installEventFilter(self)
-
+        self.ui.listWidget.setEnabled(True)
         self._isEmpty = True
         self._listWidgetItemSerialNo = 0
         self._translate = QCoreApplication.translate
@@ -129,7 +129,7 @@ class TOCListWidget(QWidget):
 
         if self.ui.listWidget.count() == 0:
             self.ui.widget_NoItem.setVisible(True)
-            self.ui.listWidget.setEnabled(False)
+            self.ui.listWidget.setEnabled(True)
             self._isEmpty = True  
             
     def resortItems(self):
