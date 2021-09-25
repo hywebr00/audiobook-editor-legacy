@@ -28,7 +28,7 @@ DISPLAY_ON_SCREEN = 1
 ORGANIZATION_NAME = "Hyweb Technology CO., LTD."
 ORGANIZATION_DOMAIN = "hyweb.com.tw"
 APPLICATION_NAME = "Audiobook Editor"
-APPLICATION_VERSION = "0.7.4.0"
+APPLICATION_VERSION = "0.7.4.1"
 
 
 class Controller(QObject):
