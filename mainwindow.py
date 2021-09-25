@@ -248,7 +248,7 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def on_action_License_triggered(self):
-        QDesktopServices.openUrl(QUrl('license.html'))
+        QDesktopServices.openUrl(QUrl.fromLocalFile('license.html'))
 
     def _openAlertWindow(self, str_Msg, str_Title):
         self.mask = MaskWidget(self)
