@@ -50,8 +50,8 @@ MP3 Codec is built-in on macOS.
 ## 貢獻者（Contributors）
 - PM: Yu-Wei Chang (Yanni)
 - Programmer: Skyrookie Yu
-- UI/UX: Iris, Yuyu
-- Testing: Wesley
+- UI/UX: Iris Chung, Yuyu Lin
+- Testing: Wesley Chiou
 
 ## W3C有聲書標準（W3C Audiobooks Spec）
 - English (Official): https://www.w3.org/TR/audiobooks/
