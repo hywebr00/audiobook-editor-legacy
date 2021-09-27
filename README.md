@@ -5,7 +5,7 @@
 本專案提供一個具基本介面與功能，可用來產出符合`W3C Audiobooks`標準有聲書之軟體。本專案係由凌網科技股份有限公司開發以用於HyRead電子書平台內部使用。凌網科技與HyRead團隊基於推廣數位出版與`W3C有聲書`標準之精神，將本專案之相關成果與原始碼以MIT授權方式開放供公眾使用，您可以在MIT授權的條件下免費且自由地運用本專案。也歡迎您加入本專案共同開發更多好用的功能或直接下載安裝程式製作您的有聲書。
 如您有任何問題請在 [Github 建立 Issues](https://github.com/hywebr00/audiobook-editor/issues)。
 
-This project provide a fundamental user interface and editing functionality to produce audiobooks comply with the `W3C Audiobooks` standard. Hyweb Technology developed this project for use within the HyRead eBook platform. To promote digital publishing and the `W3C Audiobooks` standard, Hyewb and the HyRead team have made this project for the public under the MIT license. Welcome to join this project to make it better or just download this tool to make your own audiobooks.
+This project provides a fundamental user interface and editing functionality to produce audiobooks complying with the `W3C Audiobooks` standard. Hyweb Technology developed this project for use within the HyRead eBook platform. To promote digital publishing and the `W3C Audiobooks` standard, Hyewb and the HyRead team have made this project for the public under the MIT license. Welcome to join this project to make it better or just download this tool to make your own audiobooks.
 Please [create issues on Github](https://github.com/hywebr00/audiobook-editor/issues) if you have any problems.
 
 ## 安裝檔下載（Binary Download）
@@ -46,7 +46,7 @@ This project use `PyInstaller` to produce the directory structure of production 
 The `AEditor.spec` file is for pyinstaller, just provided here to be a reference.
 
 #### macOS (developed on Big Sur)
-`PyInstaller` is still used under macOS to produce an executable .APP. The DMG Canvas is used to make the final installer.
+`PyInstaller` is still used under macOS to produce an executable .APP. The <a href="https://www.araelium.com/dmgcanvas">`DMG Canvas`</a> is used to make the final installer.
 
 #### MP3 Codec/Backend
 - Windows
