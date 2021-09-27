@@ -3,15 +3,17 @@
 ## 關於（About）
 
 本專案提供一個具基本介面與功能，可用來產出符合W3C Audiobooks標準有聲書之軟體。本專案係由凌網科技股份有限公司開發以用於HyRead電子書平台內部使用。凌網科技與HyRead團隊基於推廣數位出版與W3C有聲書標準之精神，將本專案之相關成果與原始碼以MIT授權方式開放供公眾使用，您可以在MIT授權的條件下免費且自由地運用本專案。也歡迎您加入本專案共同開發更多好用的功能。
+如您有任何問題請在 [Github 建立 Issues](https://github.com/hywebr00/audiobook-editor/issues)。
 
 This project provide a fundamental user interface and editing functionality to produce audiobooks comply with the W3C Audiobooks standard. Hyweb Technology developed this project for use within the HyRead eBook platform. To promote digital publishing and the W3C audiobook standard, Hyewb and the HyRead team have made this project for the public under the MIT license. Please to join this project and make your own audiobooks by using this editor.
+Please [create issues on Github](https://github.com/hywebr00/audiobook-editor/issues) if you have any problems.
 
 ## 安裝檔下載（Binary Download）
 本專案提供 Windows 之預編譯執行檔供下載（macOS 將於近期提供），如需其他版本請自行編譯。
 
 This project provides pre-built Windows binary files (macOS is on the way).
 
-https://github.com/hywebr00/audiobook-editor/releases
+下載安裝檔（Download Installer）：https://github.com/hywebr00/audiobook-editor/releases
 
 ## 開發環境（Development Environments）
 
