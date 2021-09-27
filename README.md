@@ -16,7 +16,7 @@ https://github.com/hywebr00/audiobook-editor/releases
 ## 開發環境（Development Environments）
 
 ### 開發環境版本（Env. Versions）
-- Windows 10 x64 with Python 3.7.9
+- Windows 10 x64 with Python 3.9.6
 - PySide2 for the GUI.
 
 ### 套件與模組（Packages & Modules Used）
