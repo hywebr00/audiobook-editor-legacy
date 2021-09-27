@@ -42,7 +42,7 @@ These fonts are licensed under the <a href="https://scripts.sil.org/cms/scripts/
 
 ### 編譯與安裝檔制作（Make Release Package & Installer）
 #### Windows
-This project use `PyInstaller` to produce the directory structure of production and `Inno Setup` to generate the final executable installer, both under Windows. 
+This project use `PyInstaller` to produce the directory structure of production and <a href="https://jrsoftware.org/isinfo.php">`Inno Setup`</a> to generate the final executable installer, both under Windows. 
 The `AEditor.spec` file is for pyinstaller, just provided here to be a reference.
 
 #### macOS (developed on Big Sur)
