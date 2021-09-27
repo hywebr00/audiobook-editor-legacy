@@ -6,5 +6,6 @@ pyinstaller -F -n AEditor \
 --add-data="Noto_Sans_TC:Noto_Sans_TC" \
 --add-data="Noto_Sans:Noto_Sans" \
 --add-data="audiobooks.schema.json:." \
+--add-data="about_licenses.html:." \
 --windowed --noconfirm \
 main.py

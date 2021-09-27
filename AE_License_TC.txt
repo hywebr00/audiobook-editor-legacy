@@ -1,14 +1,19 @@
-本程式使用以下所列套件及模組，相對的法律授權依據並列於後:
+使用者授權協議
 
-backports.tempfile, Python Software Foundation License
-beautifulsoup4, MIT License
-html5lib, MIT License
-jsonschema, MIT License
-multipledispatch, BSD
-tinytag, MIT License
-PySide, LGPL v3
-Python 3.7, Python Software Foundation License
-Qt5, LGPL v3
-regex, Apache Software License
-requests, Apache Software License
-urllib3, MIT License
+在您安裝本軟體程式前請仔細閱讀以下使用者授權協議。
+
+本軟體為一個可用來產出符合W3C Audiobooks標準之有聲書製作工具。本軟體由凌網科技股份有限公司（以下簡稱凌網科技）開發以用於HyRead電子書平台（以下簡稱HyRead）內部使用。凌網科技與HyRead團隊基於推廣數位出版與W3C有聲書標準之精神，將本軟體之相關成果與原始碼以MIT授權方式開放供公眾使用，您可以在MIT授權的條件下免費且自由地運用本軟體。在MIT授權之架構下凌網科技與HyRead可主張合理的免除擔保責任，對於其所散布之MIT授權軟體程式皆不負任何形式上實質上的擔保責任。
+
+
+MIT License
+
+Copyright(C) 2021 Hyweb Technology Co., Ltd. & HyRead eBooks
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+當您繼續安裝並使用本程式即代表您同意以上使用者授權協議。

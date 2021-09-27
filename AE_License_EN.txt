@@ -1,14 +1,19 @@
-The following packages and modules are used by this application. Their respective licenses are also listed here.
+User Lincese Agreement
 
-backports.tempfile,	Python Software Foundation License
-beautifulsoup4, MIT License
-html5lib, MIT License
-jsonschema, MIT License
-multipledispatch, BSD
-tinytag, MIT License
-PySide, LGPL v3
-Python 3.7, Python Software Foundation License
-Qt5, LGPL v3
-regex, Apache Software License
-requests, Apache Software License
-urllib3, MIT License
+Please read the following user license agreement carefully before you install this program.
+
+This software is a tool for producing audiobooks that comply with the W3C Audiobooks standard. Hyweb Technology developed this software for use within the HyRead eBook platform. To promote digital publishing and the W3C audiobook standard, Hyewb and the HyRead team have made this software and its source code available for the public under the MIT license.
+
+
+MIT License
+
+Copyright(C) 2021 Hyweb Technology Co., Ltd. & HyRead eBooks
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+By continuing to install and use this program, you are agreeing to the above User License Agreement.
