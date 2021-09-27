@@ -9,7 +9,7 @@ This project provide a fundamental user interface and editing functionality to p
 ## 安裝檔下載（Binary Download）
 本專案提供 Windows 之預編譯執行檔供下載（macOS 將於近期提供），如需其他版本請自行編譯。
 
-This project provide pre-built Windows binary files (macOS is on the way).
+This project provides pre-built Windows binary files (macOS is on the way).
 
 https://github.com/hywebr00/audiobook-editor/releases
 
@@ -42,7 +42,7 @@ The `AEditor.spec` file is for pyinstaller, just provided here to be a reference
 
 #### MP3 Codec/Backend
 - Windows
-MP3 Codec on Windows 10(backend of PyQt5): http://www.codecguide.com/configuration_tips.htm?version=1595
+MP3 Codec on Windows 10(audio backend of Qt): http://www.codecguide.com/configuration_tips.htm?version=1595
 
 - macOS (developed on Big Sur)
 MP3 Codec is built-in on macOS.
