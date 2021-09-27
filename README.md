@@ -50,7 +50,7 @@ The `AEditor.spec` file is for pyinstaller, just provided here to be a reference
 
 #### MP3 Codec/Backend
 - Windows
-MP3 Codec on Windows 10(audio backend of Qt): http://www.codecguide.com/configuration_tips.htm?version=1595
+MP3 Codec on Windows 10(audio backend of Qt): <a href="http://www.codecguide.com/configuration_tips.htm?version=1595">`K-Lite Codec Pack`</a> 
 
 - macOS (developed on Big Sur)
 MP3 Codec is built-in on macOS.
