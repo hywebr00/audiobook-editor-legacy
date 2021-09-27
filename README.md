@@ -16,7 +16,7 @@ https://github.com/hywebr00/audiobook-editor/releases
 ## 開發環境（Development Environments）
 
 ### 開發環境版本（Env. Versions）
-- Windows 10 x64 with Python 3.7.9
+- Windows 10 x64 with Python 3.9.6
 - PySide2 for the GUI.
 
 ### 套件與模組（Packages & Modules Used）
@@ -31,6 +31,12 @@ https://github.com/hywebr00/audiobook-editor/releases
 - regex
 - requests
 - urllib3
+
+### 字體（Fonts）
+- Noto Sans
+- Noto Sans TC
+
+These fonts are licensed under the <a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL">Open Font License</a>.
 
 ### 編譯與安裝檔制作（Make Release Package & Installer）
 #### Windows
@@ -50,8 +56,8 @@ MP3 Codec is built-in on macOS.
 ## 貢獻者（Contributors）
 - PM: Yu-Wei Chang (Yanni)
 - Programmer: Skyrookie Yu
-- UI/UX: Iris, Yuyu
-- Testing: Wesley
+- UI/UX: Iris Chung, Yuyu Lin
+- Testing: Wesley Chiou
 
 ## W3C有聲書標準（W3C Audiobooks Spec）
 - English (Official): https://www.w3.org/TR/audiobooks/
