@@ -35,6 +35,7 @@ https://github.com/hywebr00/audiobook-editor/releases
 ### 字體（Fonts）
 - Noto Sans
 - Noto Sans TC
+
 These fonts are licensed under the <a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL">Open Font License</a>.
 
 ### 編譯與安裝檔制作（Make Release Package & Installer）
