@@ -10,6 +10,7 @@ import sys
 # import ctypes
 import os
 
+import PySide2
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
@@ -203,8 +204,9 @@ class Controller(QObject):
 
 def getScreenResolutions():
     logging.debug('getScreenResolutions')
-    screenCount = QApplication.instance().desktop().screenCount()
-    logging.debug('Desktop DevicePixelRatio = {}'.format(str(QApplication.instance().desktop().devicePixelRatio())))
+    screenCount = len(QApplication.screens())
+
+    # logging.debug('Desktop DevicePixelRatio = {}'.format(str(QApplication.instance().desktop().devicePixelRatio())))
 
     global DISPLAY_ON_SCREEN
     if DISPLAY_ON_SCREEN >= screenCount:
@@ -245,15 +247,18 @@ def loadApplicationFonts(fontPaths):
 
 
 if __name__ == "__main__":
-    os.environ['QT_MAC_WANTS_LAYER'] = '1'
+    if sys.platform == "darwin":
+        os.environ['QT_MAC_WANTS_LAYER'] = '1'
+    # elif sys.platform == "win32":
+    # elif sys.platform == "linux" or sys.platform == "linux2":
+    # else:
+    #     pass
 
-    # if sys.platform.startswith('win'):
-    #     errorCode = ctypes.windll.shcore.SetProcessDpiAwareness(0)
-
-    if hasattr(Qt, 'AA_EnableHighDpiScaling'):
-        QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
-    if hasattr(Qt, 'AA_UseHighDpiPixmaps'):
-        QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
+    if PySide2:
+        if hasattr(Qt, 'AA_EnableHighDpiScaling'):
+            QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
+        if hasattr(Qt, 'AA_UseHighDpiPixmaps'):
+            QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
 
     LOGGING_FORMAT = '%(asctime)s %(levelname)s: %(module)s %(funcName)s %(message)s'
     LOGGING_DATE_FORMAT = '%Y%m%d %H:%M:%S'
