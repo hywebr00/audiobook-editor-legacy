@@ -451,7 +451,7 @@
     </message>
     <message>
         <location filename="../mainwindow.py" line="239"/>
-        <source>Hyweb Technology CO., LTD.</source>
+        <source>Hyweb Technology Co., LTD.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

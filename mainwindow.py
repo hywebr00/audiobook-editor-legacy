@@ -238,7 +238,7 @@ class MainWindow(QMainWindow):
         app = QApplication.instance()
         self._openAlertWindow("<center>" + self._translate("MainWindow", "Audiobook Editor") + "</center>" +
                               "<center>" + app.applicationVersion() + "</center>" +
-                              "<center>" + self._translate("MainWindow", "Hyweb Technology CO., LTD.") + "</center>",
+                              "<center>" + self._translate("MainWindow", "Hyweb Technology Co., LTD.") + "</center>",
                               self._translate("MainWindow",
                                               "Version information"))
 

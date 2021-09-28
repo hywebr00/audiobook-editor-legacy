@@ -26,10 +26,10 @@ from book import Audiobook, Helper
 
 DISPLAY_ON_SCREEN = 1
 
-ORGANIZATION_NAME = "Hyweb Technology CO., LTD."
+ORGANIZATION_NAME = "Hyweb Technology Co., LTD."
 ORGANIZATION_DOMAIN = "hyweb.com.tw"
 APPLICATION_NAME = "Audiobook Editor"
-APPLICATION_VERSION = "0.8.0.1"
+APPLICATION_VERSION = "0.8.1.1"
 
 
 class Controller(QObject):
@@ -52,9 +52,9 @@ class Controller(QObject):
         # app = QApplication.instance()
         # desktop = QApplication.instance().desktop()
         # displayScreenGeometry = QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN)
-        self.loadingWidget.move(QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().x() -
+        self.loadingWidget.move(QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().x() -
                                 self.loadingWidget.size().width() / 2,
-                                QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().y() -
+                                QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().y() -
                                 self.loadingWidget.size().height() / 2)
         self.loadingWidget.switch_window.connect(self.show_StartingPanel)
         self.loadingWidget.show()
@@ -88,9 +88,9 @@ class Controller(QObject):
         self.startingPanel.signal_switch_window[str].connect(self.show_MainWindow)
         self.loadingWidget.close()
 
-        self.startingPanel.move(QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().x() -
+        self.startingPanel.move(QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().x() -
                                 self.startingPanel.size().width() / 2,
-                                QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().y() -
+                                QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().y() -
                                 self.startingPanel.size().height() / 2)
 
         self.startingPanel.show()
@@ -103,9 +103,9 @@ class Controller(QObject):
             self.startingPanel.close()
             self.createNewWizard.switch_window[dict].connect(self.show_MainWindow)
 
-            self.createNewWizard.move(QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().x() -
+            self.createNewWizard.move(QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().x() -
                                       self.createNewWizard.size().width() / 2,
-                                      QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().y() -
+                                      QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().y() -
                                       self.createNewWizard.size().height() / 2)
 
             self.createNewWizard.show()
@@ -128,9 +128,9 @@ class Controller(QObject):
             if hasattr(self, 'createNewWizard'):
                 self.createNewWizard.close()
 
-            self.mainWindow.move(QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().x() -
+            self.mainWindow.move(QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().x() -
                                  self.mainWindow.size().width() / 2,
-                                 QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().y() -
+                                 QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().y() -
                                  self.mainWindow.size().height() / 2)
 
             self.mainWindow.show()
@@ -274,6 +274,8 @@ if __name__ == "__main__":
 
     settings = QSettings(app.organizationName(),
                          app.applicationName())
+
+    logging.debug(settings.fileName())
 
     language = settings.value('Language', '')
     installerLanguage = settings.value('InstallerLanguage', '')

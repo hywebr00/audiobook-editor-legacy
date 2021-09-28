@@ -13,7 +13,6 @@ import glob
 import json
 import os
 import re
-# from mutagen.mp3 import MP3
 # import backports.tempfile
 from tinytag import TinyTag
 from tempfile import NamedTemporaryFile
@@ -31,8 +30,8 @@ from PySide2.QtWidgets import *
 from alert import Alert, AlertWithButtons
 from translucent import MaskWidget
 
-LOGGING_FORMAT = '%(asctime)s %(levelname)s: %(module)s %(funcName)s %(message)s'
-LOGGING_DATE_FORMAT = '%Y%m%d %H:%M:%S'
+# LOGGING_FORMAT = '%(asctime)s %(levelname)s: %(module)s %(funcName)s %(message)s'
+# LOGGING_DATE_FORMAT = '%Y%m%d %H:%M:%S'
 
 
 class Helper(QObject):
