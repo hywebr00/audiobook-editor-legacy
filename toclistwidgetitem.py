@@ -60,7 +60,7 @@ class TOCListWidgetItem(QWidget):
             self.ui.timeEdit_Start.setEnabled(False)
             self.ui.timeEdit_Start.setVisible(False)
 
-        self.ui.label_Href.setText((fullFilename.replace(book.getBookDir() + '/', ""),
+        self.ui.label_Href.setText((fullFilename.replace(book.BookDir + '/', ""),
                                     fullFilename)[fullFilename.startswith('http')])
 
         self.ui.label_Href.setToolTip("<p style=\"color:#FFFFFF;font-family: Noto Sans;font-style: normal;"
@@ -115,7 +115,7 @@ class TOCListWidgetItem(QWidget):
                                                  "</p>")
 
             self.ui.lineEdit_Title.setText(self._title)
-            self.ui.label_Href.setText((self._fullFilename.replace(book.getBookDir() + '/', ""),
+            self.ui.label_Href.setText((self._fullFilename.replace(book.BookDir + '/', ""),
                                         self._fullFilename)[self._fullFilename.startswith('http')])
         super().changeEvent(event)
 

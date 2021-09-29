@@ -185,19 +185,19 @@ class CoverPreviewWidget(QWidget):
         book = Audiobook.getInstance()
         option, list_compulsory = book.determineOption()
 
-        url_compulsory = [book.getBookDir() + '/' + f
+        url_compulsory = [book.BookDir + '/' + f
                           for f in list_compulsory
                           if not f.startswith('http')]
-        url_orderingOrder = [book.getBookDir() + '/' + f["url"]
+        url_orderingOrder = [book.BookDir + '/' + f["url"]
                              for f in self.mainWindow.readingOrderWidget.save()
                              if not f["url"].startswith('http')]
-        url_toc = [book.getBookDir() + '/' + f["href"]
+        url_toc = [book.BookDir + '/' + f["href"]
                    for f in self.mainWindow.tocWidget.save(True)
                    if not f["href"].startswith('http')]
-        url_cover = [book.getBookDir() + '/' + f["url"]
+        url_cover = [book.BookDir + '/' + f["url"]
                      for f in [self.save()]
                      if not f["url"].startswith('http')]
-        url_supplemental = [book.getBookDir() + '/' + f["url"] for f in self.mainWindow.supplementalListWidget.save()
+        url_supplemental = [book.BookDir + '/' + f["url"] for f in self.mainWindow.supplementalListWidget.save()
                             if not f["url"].startswith('http')]
 
         set_url = set(url_compulsory +
@@ -222,7 +222,7 @@ class CoverPreviewWidget(QWidget):
                 filename = ""
                 return
 
-            elif book.getBookDir() + '/' + file_name in set_url:
+            elif book.BookDir + '/' + file_name in set_url:
                 logging.debug("One file with the same name is already in this audiobook")
 
                 result = self._openAlertWithButtonsWindow(self._translate("CoverPreviewWidget",
@@ -235,8 +235,8 @@ class CoverPreviewWidget(QWidget):
 
                 if result:
                     try:
-                        shutil.copyfile(filename, book.getBookDir() + '/' + file_name)
-                        filename = book.getBookDir() + '/' + file_name
+                        shutil.copyfile(filename, book.BookDir + '/' + file_name)
+                        filename = book.BookDir + '/' + file_name
                     except Exception as ex:
                         logging.critical(ex)
 
@@ -249,17 +249,17 @@ class CoverPreviewWidget(QWidget):
                     filename = ""
                     return
 
-            elif file_folder == book.getBookDir():
+            elif file_folder == book.BookDir:
                 pass
             else:
                 pass
 
             src = QFile(filename)
             # info = QFileInfo(filename)
-            if file_folder != book.getBookDir():
+            if file_folder != book.BookDir:
                 try:
-                    shutil.copyfile(filename, book.getBookDir() + '/' + file_name)
-                    filename = book.getBookDir() + '/' + file_name
+                    shutil.copyfile(filename, book.BookDir + '/' + file_name)
+                    filename = book.BookDir + '/' + file_name
                 except Exception as ex:
                     logging.critical(ex)
 
@@ -270,7 +270,7 @@ class CoverPreviewWidget(QWidget):
                                                           "Warning"))
                     return
             else:
-                filename = book.getBookDir() + '/' + file_name
+                filename = book.BookDir + '/' + file_name
 
             img = QPixmap(filename)
             w, h = img.size().width(), img.size().height()
@@ -325,12 +325,12 @@ class CoverPreviewWidget(QWidget):
 
             filename, _ = QFileDialog.getOpenFileName(self,
                                                       self._translate("CoverPreviewWidget", 'Open file'),
-                                                      book.getBookDir() + '/',
+                                                      book.BookDir + '/',
                                                       "JPG Files (*.jpg);;PNG Files (*.png)")
 
             # result, filename = self._getOpenFilename(False,
             #                                          'Open file',
-            #                                          book.getBookDir() + '/',
+            #                                          book.BookDir + '/',
             #                                          "JPG Files (*.jpg);;PNG Files (*.png)")
 
             if filename:
@@ -354,7 +354,7 @@ class CoverPreviewWidget(QWidget):
 
             filename, _ = QFileDialog.getOpenFileName(self,
                                                       self._translate("CoverPreviewWidget", 'Open file'),
-                                                      book.getBookDir() + '/',
+                                                      book.BookDir + '/',
                                                       "JPG Files (*.jpg);;PNG Files (*.png)")
 
             if filename:
@@ -370,7 +370,7 @@ class CoverPreviewWidget(QWidget):
         extension = mimetypes.guess_extension(self.href)
 
         if mime is not None:
-            dict_cover = {"url": self.href.replace(book.getBookDir() + "/", ""),
+            dict_cover = {"url": self.href.replace(book.BookDir + "/", ""),
                           "encodingFormat": mime,
                           "name": "Cover",
                           "rel": "cover"}

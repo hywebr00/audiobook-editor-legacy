@@ -64,18 +64,18 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout(self.ui.tab_Metadata)
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setAlignment(Qt.AlignTop | Qt.AlignLeft)
-        self.metadataWidget = MetadataWidget(self, self.book.getManifestDict())
+        self.metadataWidget = MetadataWidget(self, self.book.ManifestDict)
         layout.addWidget(self.metadataWidget)
 
         layout = QVBoxLayout(self.ui.dockWidgetContents)
         layout.setContentsMargins(0, 0, 0, 0)
-        self.coverPreviewWidget = CoverPreviewWidget(self.book.getCoverDict(), self.book.getBookDir(), self)
+        self.coverPreviewWidget = CoverPreviewWidget(self.book.CoverDict, self.book.BookDir, self)
         layout.addWidget(self.coverPreviewWidget, 1)
 
         w = QWidget()
         layout = QHBoxLayout(w)
         layout.setContentsMargins(0, 0, 0, 0)
-        self.readingOrderWidget = ReadingOrderWidget(self.book.getReadingOrderList(), self.book.getBookDir(), self)
+        self.readingOrderWidget = ReadingOrderWidget(self.book.ReadingOrderList, self.book.BookDir, self)
         self.readingOrderWidget.signal_Duration_Changed.connect(self.metadataWidget.onDurationChanged)
         layout.addWidget(self.readingOrderWidget)
         self.setCentralWidget(w)
@@ -83,12 +83,12 @@ class MainWindow(QMainWindow):
 
         layout = QVBoxLayout(self.ui.tab_TOC)
         layout.setContentsMargins(0, 0, 0, 0)
-        self.tocWidget = TOCListWidget(self, self.book.getTOCList())
+        self.tocWidget = TOCListWidget(self, self.book.TOCList)
         layout.addWidget(self.tocWidget)
 
         layout = QVBoxLayout(self.ui.dockWidgetContents_2)
         layout.setContentsMargins(0, 0, 0, 0)
-        self.supplementalListWidget = SupplementalListWidgetWithWidgets(self.book.getSupplementalList(), self)
+        self.supplementalListWidget = SupplementalListWidgetWithWidgets(self.book.SupplementalList, self)
         layout.addWidget(self.supplementalListWidget, 1)
 
         self.supplementalListWidget.signal_Add_Resource_to_TOC.connect(self.tocWidget.add_Resource_to_TOC_triggered)
@@ -307,19 +307,19 @@ class MainWindow(QMainWindow):
         supplementalList = self.supplementalListWidget.save()
 
         logging.debug(manifest)
-        self.book.setManifestDict(manifest)
+        self.book.ManifestDict = manifest
 
         logging.debug(readingOrder)
-        self.book.setReadingOrderList(readingOrder)
+        self.book.ReadingOrderList = readingOrder
 
         logging.debug(toc)
-        self.book.setTOCList(toc)
+        self.book.TOCList = toc
 
         logging.debug(cover)
-        self.book.setCoverDict(cover)
+        self.book.CoverDict = cover
 
         logging.debug(supplementalList)
-        self.book.setSupplementalList(supplementalList)
+        self.book.SupplementalList = supplementalList
         self.updateSettings()
 
         self.book.on_action_Save_Audiobook_triggered()
@@ -351,9 +351,9 @@ class MainWindow(QMainWindow):
                                                        self.recentFilesOrDirectoriesInSettings.split(';')]
         else:
             self.recentFilesOrDirectoriesInSettings = []
-        bookPath = self.book.getBookDir()
-        coverFile = self.book.getCoverDict()
-        manifest = self.book.getManifestDict()
+        bookPath = self.book.BookDir
+        coverFile = self.book.CoverDict
+        manifest = self.book.ManifestDict
 
         logging.debug(bookPath)
         logging.debug(coverFile)
@@ -364,10 +364,10 @@ class MainWindow(QMainWindow):
         if self.book.is_LPF:
 
             dict_One = next((one for one in self.recentFilesOrDirectoriesInSettings if
-                             one["bookPath"] == self.book.getLPFFilename()), None)
+                             one["bookPath"] == self.book.LPFFilename), None)
             logging.debug(dict_One)
             if dict_One is None:
-                self.recentFilesOrDirectoriesInSettings.insert(0, {"bookPath": self.book.getLPFFilename(),
+                self.recentFilesOrDirectoriesInSettings.insert(0, {"bookPath": self.book.LPFFilename,
                                                                    "coverFile": coverFile.get("url", ""),
                                                                    "bookTitle": manifest.get("name", ""),
                                                                    "lastOpenedDate": QDate.currentDate().toString(
@@ -421,7 +421,7 @@ class MainWindow(QMainWindow):
             logging.debug('omit validation process')
             return
 
-        manifestForTest = self.book.getManifestDict()
+        manifestForTest = self.book.ManifestDict
         logging.debug(manifestForTest)
 
         self.mask = MaskWidget(self)
@@ -508,14 +508,4 @@ class MainWindow(QMainWindow):
         else:
             event.accept()
             self.showMaximized()
-            # self.readingOrderWidget.ui.listWidget.setAutoScroll(True)
-            # self.tocWidget.ui.listWidget.setAutoScroll(True)
-            # self.supplementalListWidget.ui.listWidget.setAutoScroll(True)
-            # self.metadataWidget.
 
-        # elif minWidth <= sWidth and minHeight > sHeight:
-        #     if self.metadataWidget.geometry().top() + self.metadataWidget.minimumHeight() <= sHeight:
-        #         newHeight = self.ui.dockWidget_Left.geometry().y() + self.metadataWidget.minimumHeight()
-        #         # self.centralWidget().setMinimumHeight(newWidth - self.centralWidget().geometry().top())
-        #         # self.supplementalListWidget()  centralWidget().setMinimumHeight(newWidth - self.centralWidget().geometry().top())
-        #         pass

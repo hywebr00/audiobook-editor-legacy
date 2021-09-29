@@ -4,8 +4,6 @@ Created on Thu Jan  7 07:00:16 2021
 """
 
 import logging
-import tempfile
-
 from bs4 import BeautifulSoup
 import datetime
 import mimetypes
@@ -29,9 +27,6 @@ from PySide2.QtWidgets import *
 
 from alert import Alert, AlertWithButtons
 from translucent import MaskWidget
-
-# LOGGING_FORMAT = '%(asctime)s %(levelname)s: %(module)s %(funcName)s %(message)s'
-# LOGGING_DATE_FORMAT = '%Y%m%d %H:%M:%S'
 
 
 class Helper(QObject):
@@ -342,7 +337,7 @@ class Audiobook(QObject):
                                  QStandardPaths.writableLocation(QStandardPaths.CacheLocation) +
                                  '/' +
                                  QUuid.createUuid().toString())
-                self.openFromDirectory(self.getBookDir())
+                self.openFromDirectory(self.BookDir)
 
         self.settings = QSettings()
         self.recentPackToLPFDirectoryInSettings = self.settings.value('RecentPackToLPFDirectory',
@@ -441,31 +436,48 @@ class Audiobook(QObject):
         logging.debug("We're going to NEW a book!")
         self.resetToOption_1()
 
-    def getLPFFilename(self):
+    @property
+    def LPFFilename(self):
         return self._LPF_File
 
-    def getBookDir(self):
+    @property
+    def BookDir(self):
         return self._BOOK_DIR
 
-    def getID(self):
+    @property
+    def ID(self):
         return self._id
 
-    def setManifestDict(self, m):
-        self._MANIFEST = m
-
-    def getManifestDict(self):
+    @property
+    def ManifestDict(self):
         return self._MANIFEST
 
-    def getTOCFile(self):
+    @ManifestDict.setter
+    def ManifestDict(self, m):
+        self._MANIFEST = m
+
+    @property
+    def TOCFile(self):
         return self._TOC_File
 
-    def setTOCList(self, t):
-        self._TOC_List = t
-
-    def getTOCList(self):
+    @property
+    def TOCList(self):
         return self._TOC_List
 
-    def setCoverDict(self, dict_Cover):
+    @TOCList.setter
+    def TOCList(self, t):
+        self._TOC_List = t
+
+    @property
+    def CoverDict(self):
+        if 'resources' in self.ManifestDict:
+            for item in self.ManifestDict["resources"]:
+                if item.get("rel") is not None and item.get("rel") == "cover":
+                    return item
+        return {}
+
+    @CoverDict.setter
+    def CoverDict(self, dict_Cover):
         if self._MANIFEST.get("resources", None) is None:
             self._MANIFEST["resources"] = [dict_Cover]
             return
@@ -477,25 +489,11 @@ class Audiobook(QObject):
                 break
         self._MANIFEST["resources"].append(dict_Cover)
 
-    def getCoverDict(self):
-        if 'resources' in self.getManifestDict():
-            for item in self.getManifestDict()["resources"]:
-                if item.get("rel") is not None and item.get("rel") == "cover":
-                    return item
-        return {}
-
-    def setSupplementalList(self, sList):
-        if self._MANIFEST.get("resources", None) is None:
-            self._MANIFEST["resources"] = sList
-            return
-
-        for s in sList:
-            self._MANIFEST["resources"].append(s)
-
-    def getSupplementalList(self):
+    @property
+    def SupplementalList(self):
         slist = []
-        if 'resources' in self.getManifestDict():
-            for item in self.getManifestDict()["resources"]:
+        if 'resources' in self.ManifestDict:
+            for item in self.ManifestDict["resources"]:
                 if item.get("rel") is not None and item.get("rel") == "cover":
                     continue
                 elif item.get("name") is not None and item.get("name") == "Primary Entry Page":
@@ -510,14 +508,25 @@ class Audiobook(QObject):
 
         return slist
 
-    def setReadingOrderList(self, rList):
-        self._MANIFEST["readingOrder"] = rList
+    @SupplementalList.setter
+    def SupplementalList(self, sList):
+        if self._MANIFEST.get("resources", None) is None:
+            self._MANIFEST["resources"] = sList
+            return
 
-    def getReadingOrderList(self):
-        if 'readingOrder' in self.getManifestDict():
-            return self.getManifestDict()['readingOrder']
+        for s in sList:
+            self._MANIFEST["resources"].append(s)
+
+    @property
+    def ReadingOrderList(self):
+        if 'readingOrder' in self.ManifestDict:
+            return self.ManifestDict['readingOrder']
 
         return []
+
+    @ReadingOrderList.setter
+    def ReadingOrderList(self, rList):
+        self._MANIFEST["readingOrder"] = rList
 
     def on_action_Pack_triggered(self, mainWindow):
         logging.debug("Save as a LPF file!")
@@ -561,7 +570,7 @@ class Audiobook(QObject):
         filesToBePacked = set()
 
         def addFilesToBePacked(data):
-            # data = self.getTOCList()
+            # data = self.TOCList
             for i in range(len(data)):
                 tocDict = data[i]
                 level = tocDict["level"]
@@ -574,7 +583,7 @@ class Audiobook(QObject):
                         filesToBePacked.add(href[0:pos])
                 addFilesToBePacked(data[i]['children'])
 
-        data = self.getTOCList()
+        data = self.TOCList
         addFilesToBePacked(data)
 
         for i in range(len(self._MANIFEST["readingOrder"])):
@@ -600,17 +609,17 @@ class Audiobook(QObject):
         filesToBePacked = set(filesToBePacked)
         save_zip_file = zipfile.ZipFile(lpf_file, mode='w')
         for f in filesToBePacked:
-            logging.debug(os.path.join(self.getBookDir(), f).replace('\\', '/'))
-            if os.path.join(self.getBookDir(), f).replace('\\', '/') == lpf_file:
+            logging.debug(os.path.join(self.BookDir, f).replace('\\', '/'))
+            if os.path.join(self.BookDir, f).replace('\\', '/') == lpf_file:
                 continue
 
-            mime, _ = mimetypes.guess_type(os.path.join(self.getBookDir(), f).replace('\\', '/'))
+            mime, _ = mimetypes.guess_type(os.path.join(self.BookDir, f).replace('\\', '/'))
 
             if mime is None or (not mime.startswith("audio") and not mime.startswith("video")):
-                save_zip_file.write(os.path.join(self.getBookDir(), f).replace('\\', '/'), f,
+                save_zip_file.write(os.path.join(self.BookDir, f).replace('\\', '/'), f,
                                     compress_type=zipfile.ZIP_DEFLATED)
             else:
-                save_zip_file.write(os.path.join(self.getBookDir(), f).replace('\\', '/'), f,
+                save_zip_file.write(os.path.join(self.BookDir, f).replace('\\', '/'), f,
                                     compress_type=zipfile.ZIP_STORED)
 
         save_zip_file.close()
@@ -633,7 +642,7 @@ class Audiobook(QObject):
     @Slot()
     def on_action_Save_Audiobook_triggered(self):
         logging.debug("on_action_Save_Audiobook_triggered")
-        self.saveIntoDirectory(self.getBookDir())
+        self.saveIntoDirectory(self.BookDir)
         if self.is_LPF:
             logging.debug("Save as a LPF file!")
             self.saveAsLPF(self._LPF_File)
@@ -694,10 +703,10 @@ class Audiobook(QObject):
         if self._optionNo == 1:  # self._PEP_File and not self._TOC_File and not self._MANIFEST_File
             logging.debug("self._optionNo = 1")
             fullManifestContent = ""
-            data = self.getTOCList()
+            data = self.TOCList
             tocString = getTOCBlock(data, 0)
 
-            metadata = self.getManifestDict()
+            metadata = self.ManifestDict
 
             """
             <meta name=\"stylesheet\" src=\"{}\">
@@ -741,7 +750,7 @@ class Audiobook(QObject):
             with open(directory + "/" + "index.html", "w", encoding="utf-8") as f:
                 f.write(fullPEPContent)
 
-            data = self.getTOCList()
+            data = self.TOCList
             tocString = getTOCBlock(data, 0)
 
             fullTOCContent = self._TOC_OPTION_2.format(self._Booktitle,
@@ -754,7 +763,7 @@ class Audiobook(QObject):
                                                 "encodingFormat": "text/html",
                                                 "name": "Table of Contents",
                                                 "rel": "contents",
-                                                "url": self.getTOCFile() or "toc.html"})
+                                                "url": self.TOCFile or "toc.html"})
             self._MANIFEST["resources"].append({"url": "index.html",
                                                 "encodingFormat": "text/html",
                                                 "name": "Primary Entry Page",
@@ -764,7 +773,7 @@ class Audiobook(QObject):
 
         elif self._optionNo == 3:
             logging.debug("self._optionNo = 3")
-            data = self.getTOCList()
+            data = self.TOCList
             tocString = getTOCBlock(data, 0)
 
             # fullPEPContent = ""
@@ -790,7 +799,7 @@ class Audiobook(QObject):
         elif self._optionNo == 4:
             logging.debug("self._optionNo = 4")
 
-            data = self.getTOCList()
+            data = self.TOCList
             tocString = getTOCBlock(data, 0)
 
             fullTOCContent = self._TOC_OPTION_4.format(self._Booktitle,
@@ -803,7 +812,7 @@ class Audiobook(QObject):
                                                 "encodingFormat": "text/html",
                                                 "name": "Table of Contents",
                                                 "rel": "contents",
-                                                "url": self.getTOCFile() or "toc.html"})
+                                                "url": self.TOCFile or "toc.html"})
             with open(directory + "/" + self._MANIFEST_File, "w", encoding="utf-8") as f:
                 json.dump(self._MANIFEST, f, indent=4, ensure_ascii=False)
 
@@ -1119,28 +1128,28 @@ class Audiobook(QObject):
             return
 
         if self._TOC or self._MANIFEST:
-            self._loaded = True
+            self.loaded = True
             self.determineOption()
             logging.debug(self._optionNo)
 
             # For Test
-            self._dirty = True
+            self.dirty = True
 
     def getCheckSet(self, mainWindow):
         option, list_compulsory = self.determineOption()
-        url_compulsory = [self.getBookDir() + '/' + f
+        url_compulsory = [self.BookDir + '/' + f
                           for f in list_compulsory
                           if not f.startswith('http')]
-        url_orderingOrder = [self.getBookDir() + '/' + f["url"]
+        url_orderingOrder = [self.BookDir + '/' + f["url"]
                              for f in mainWindow.readingOrderWidget.save()
                              if not f["url"].startswith('http')]
-        url_toc = [self.getBookDir() + '/' + f["href"]
+        url_toc = [self.BookDir + '/' + f["href"]
                    for f in mainWindow.tocWidget.save(True)
                    if not f["href"].startswith('http')]
-        url_cover = [self.getBookDir() + '/' + f["url"]
+        url_cover = [self.BookDir + '/' + f["url"]
                      for f in [mainWindow.coverPreviewWidget.save()]
                      if not f["url"].startswith('http')]
-        url_supplemental = [self.getBookDir() + '/' + f["url"]
+        url_supplemental = [self.BookDir + '/' + f["url"]
                             for f in mainWindow.supplementalListWidget.save()
                             if not f["url"].startswith('http')]
         set_url = set(url_compulsory +
@@ -1159,15 +1168,15 @@ class Audiobook(QObject):
                 logging.debug("You have chosen one file already in this audiobook")
                 continue
 
-            elif self.getBookDir() + '/' + file_name in checkSet:
+            elif self.BookDir + '/' + file_name in checkSet:
                 logging.debug("One file with the same name is already in this audiobook")
                 try:
-                    shutil.copyfile(filename, self.getBookDir() + '/' + file_name)
-                    filename = self.getBookDir() + '/' + file_name
+                    shutil.copyfile(filename, self.BookDir + '/' + file_name)
+                    filename = self.BookDir + '/' + file_name
                 except Exception as ex:
                     logging.critical(ex)
                     continue
-            elif file_folder == self.getBookDir():
+            elif file_folder == self.BookDir:
                 pass
             else:
                 pass
@@ -1176,15 +1185,15 @@ class Audiobook(QObject):
 
             src = QFile(filename)
             # info = QFileInfo(filename)
-            if file_folder != self.getBookDir():
+            if file_folder != self.BookDir:
                 try:
-                    shutil.copyfile(filename, self.getBookDir() + '/' + file_name)
-                    filename = self.getBookDir() + '/' + file_name
+                    shutil.copyfile(filename, self.BookDir + '/' + file_name)
+                    filename = self.BookDir + '/' + file_name
                 except Exception as ex:
                     logging.critical(ex)
                     continue
             else:
-                filename = self.getBookDir() + '/' + file_name
+                filename = self.BookDir + '/' + file_name
 
             mime, _ = mimetypes.guess_type(filename, strict=False)
 

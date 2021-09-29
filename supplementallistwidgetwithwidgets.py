@@ -105,7 +105,7 @@ class SupplementalListWidgetWithWidgets(QWidget):
                 item = QListWidgetItem()
                 # item.setText(str(self.ui.listWidget.count()))
                 item.setSizeHint(self.getItemSize())
-                roi = SupplementalListWidgetItem((book.getBookDir() + '/' + url, url)[url.startswith('http')],
+                roi = SupplementalListWidgetItem((book.BookDir + '/' + url, url)[url.startswith('http')],
                                                  item,
                                                  self.getSerialNo())
 
@@ -174,7 +174,7 @@ class SupplementalListWidgetWithWidgets(QWidget):
         self.afw = AttachFromWidgetWithoutURL(False,
                                               'Open files',
                                               (SupplementalListWidgetWithWidgets.str_LastOpenedDirectory,
-                                               book.getBookDir() + '/')
+                                               book.BookDir + '/')
                                               [SupplementalListWidgetWithWidgets.str_LastOpenedDirectory is None],
                                               "Any file(*.*)")
 
@@ -259,12 +259,12 @@ class SupplementalListWidgetWithWidgets(QWidget):
             if mime is None:
                 logging.warning('Cannot guess file type!')
                 supplementalList.append(
-                    {"url": (url.replace(book.getBookDir() + "/", ""), url)[url.startswith('http')]})
+                    {"url": (url.replace(book.BookDir + "/", ""), url)[url.startswith('http')]})
             else:
                 extension = mimetypes.guess_extension(mime)
                 logging.debug('File extension: %s' % extension)
                 logging.debug('File MIME type: %s' % mime)
-                supplementalList.append({"url": url.replace(book.getBookDir() + "/", ""),
+                supplementalList.append({"url": url.replace(book.BookDir + "/", ""),
                                          "encodingFormat": mime})
 
         return supplementalList

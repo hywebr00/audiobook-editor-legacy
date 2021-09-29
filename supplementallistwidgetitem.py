@@ -65,9 +65,9 @@ class SupplementalListWidgetItem(QWidget):
         if file_extension == '.lpf':   
         '''    
         book = Audiobook.getInstance()
-        logging.debug((fullFilename.replace(book.getBookDir() + '/', ""), fullFilename)
+        logging.debug((fullFilename.replace(book.BookDir + '/', ""), fullFilename)
                       [fullFilename.startswith('http')])
-        shortFilename = (fullFilename.replace(book.getBookDir() + '/', ""),
+        shortFilename = (fullFilename.replace(book.BookDir + '/', ""),
                          fullFilename)[fullFilename.startswith('http')]
         displayFilename = shortFilename
         if mime is not None:

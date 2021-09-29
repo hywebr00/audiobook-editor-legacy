@@ -190,12 +190,12 @@ class TOCListWidget(QWidget):
                     indexOfSharpSign = href.find('#t=')
                     timeStamp = ''
                     if indexOfSharpSign == -1:
-                        fullFilename = (book.getBookDir() + '/' + href, href)[href.startswith('http')]
+                        fullFilename = (book.BookDir + '/' + href, href)[href.startswith('http')]
                         roi = TOCListWidgetItem(fullFilename, item, self.getSerialNo(), dict_TOC['title'])
                         # roi.ui.lineEdit_Title.setText(dict_TOC['title'])
                     else:
                         timeStamp = href[indexOfSharpSign + 3:]
-                        fullFilename = (book.getBookDir() + '/' + href[0: indexOfSharpSign],
+                        fullFilename = (book.BookDir + '/' + href[0: indexOfSharpSign],
                                         href[0: indexOfSharpSign])[href.startswith('http')]
                         roi = TOCListWidgetItem(fullFilename, item, self.getSerialNo(), dict_TOC['title'])
                         # roi.ui.lineEdit_Title.setText(dict_TOC['title'])

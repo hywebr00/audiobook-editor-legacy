@@ -70,8 +70,8 @@ class ReadingOrderItem(QWidget):
             self.ui.progressBar.setValue(0)
             self._seconds = duration
         else:
-            logging.debug(fullFilename.replace(book.getBookDir() + '/', ""))
-            self.ui.label_Href.setText(fullFilename.replace(book.getBookDir() + '/', ""))
+            logging.debug(fullFilename.replace(book.BookDir + '/', ""))
+            self.ui.label_Href.setText(fullFilename.replace(book.BookDir + '/', ""))
 
             self.ui.label_Href.setToolTip("<p style=\"color:#FFFFFF\">" +
                                           fullFilename +
@@ -170,7 +170,7 @@ class ReadingOrderItem(QWidget):
                                                self._translate("ReadingOrderItem", "Play voice!") +
                                                "</p>")
 
-            self.ui.label_Href.setText(self._fullFilename.replace(book.getBookDir() + '/', ""))
+            self.ui.label_Href.setText(self._fullFilename.replace(book.BookDir + '/', ""))
 
         super().changeEvent(event)
 

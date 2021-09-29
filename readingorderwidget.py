@@ -150,7 +150,7 @@ class ReadingOrderWidget(QWidget):
                     # item.setText(str(self.ui.listWidget.count()))
                     item.setSizeHint(self.getItemSize())
 
-                    roi = ReadingOrderItem((book.getBookDir() + '/' + url, url)[url.startswith("http")],
+                    roi = ReadingOrderItem((book.BookDir + '/' + url, url)[url.startswith("http")],
                                            item,
                                            self.getSerialNo())
 
@@ -170,7 +170,7 @@ class ReadingOrderWidget(QWidget):
                         # item.setText(str(self.ui.listWidget.count()))
                         item.setSizeHint(self.getItemSize())
 
-                        roi = ReadingOrderItem((book.getBookDir() + '/' + url, url)[url.startswith("http")],
+                        roi = ReadingOrderItem((book.BookDir + '/' + url, url)[url.startswith("http")],
                                                item,
                                                self.getSerialNo())
                         self.ui.listWidget.addItem(item)
@@ -250,7 +250,7 @@ class ReadingOrderWidget(QWidget):
 
         self.afw = AttachFromWidgetWithoutURL(False,
                                               self._translate("ReadingOrderWidget", 'Open file'),
-                                              (ReadingOrderWidget.str_LastOpenedDirectory, book.getBookDir() + '/')
+                                              (ReadingOrderWidget.str_LastOpenedDirectory, book.BookDir + '/')
                                               [ReadingOrderWidget.str_LastOpenedDirectory is None],
                                               "Audio files (*.mp3);; Wav files (*.wav)")
 
@@ -398,7 +398,7 @@ class ReadingOrderWidget(QWidget):
             # kind = filetype.guess(bookDir + r'/' + url)
             if mime is None:
                 logging.warning('Cannot guess file type!')
-                readingOrderList.append({"url": (url.replace(book.getBookDir() + "/", "")
+                readingOrderList.append({"url": (url.replace(book.BookDir + "/", "")
                                                  , url)[url.startswith('http')]})
             else:
                 logging.debug('File extension: %s' % extension)
@@ -407,7 +407,7 @@ class ReadingOrderWidget(QWidget):
                     seconds_Duration += item.getDuration()  # _seconds
                     logging.debug("url = " + url)
 
-                    readingOrderList.append({"url": (url.replace(book.getBookDir() + "/",
+                    readingOrderList.append({"url": (url.replace(book.BookDir + "/",
                                                                  ""), url)[url.startswith('http')],
                                              "encodingFormat": mime,
                                              "name": item.ui.lineEdit.text(),
