@@ -381,8 +381,11 @@ class Audiobook(QObject):
         del self._is_LPF
 
     def __del__(self):
-        logging.debug("Audiobook: del is called!")
-        pass
+        if Audiobook._instance is not None:
+            logging.debug("Audiobook: del is called!")
+            Audiobook._instance = None
+        else:
+            pass
 
     def resetToOption_1(self):
         self._optionNo = 1

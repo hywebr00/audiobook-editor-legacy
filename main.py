@@ -7,7 +7,6 @@ import json
 import logging
 from multipledispatch import dispatch
 import sys
-# import ctypes
 import os
 
 import PySide2
@@ -29,13 +28,14 @@ DISPLAY_ON_SCREEN = 1
 ORGANIZATION_NAME = "Hyweb Technology Co., LTD."
 ORGANIZATION_DOMAIN = "hyweb.com.tw"
 APPLICATION_NAME = "Audiobook Editor"
-APPLICATION_VERSION = "0.8.1.1"
+APPLICATION_VERSION = "0.8.2.1"
 
 
 class Controller(QObject):
+
     signal_switch_to_mainwindow = Signal(str)
 
-    _translate = QCoreApplication.translate
+    # _translate = QCoreApplication.translate
 
     def __init__(self):
         super().__init__()
@@ -49,9 +49,6 @@ class Controller(QObject):
 
     def show_LoadingWidget(self):
         self.loadingWidget = LoadingWidget()
-        # app = QApplication.instance()
-        # desktop = QApplication.instance().desktop()
-        # displayScreenGeometry = QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN)
         self.loadingWidget.move(QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().x() -
                                 self.loadingWidget.size().width() / 2,
                                 QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().y() -
@@ -153,9 +150,9 @@ class Controller(QObject):
         self.mainWindow.signal_new.connect(self.new)
         self.mainWindow.signal_open.connect(self.open)
 
-        self.mainWindow.move(QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().x() -
+        self.mainWindow.move(QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().x() -
                              self.mainWindow.size().width() / 2,
-                             QApplication.instance().desktop().screenGeometry(DISPLAY_ON_SCREEN).center().y() -
+                             QApplication.screens()[DISPLAY_ON_SCREEN].geometry().center().y() -
                              self.mainWindow.size().height() / 2)
 
         self.mainWindow.show()
@@ -205,8 +202,6 @@ class Controller(QObject):
 def getScreenResolutions():
     logging.debug('getScreenResolutions')
     screenCount = len(QApplication.screens())
-
-    # logging.debug('Desktop DevicePixelRatio = {}'.format(str(QApplication.instance().desktop().devicePixelRatio())))
 
     global DISPLAY_ON_SCREEN
     if DISPLAY_ON_SCREEN >= screenCount:
