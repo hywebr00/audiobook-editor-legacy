@@ -75,3 +75,7 @@ MP3 Codec is built-in on macOS.
 我們使用 Gitflow 管理此代碼庫，並據此與所有貢獻者及參與者合作!
 
 We are using Gitflow to manage this repository. Therefore, we are looking to collaborate on this project with all contributors around the world.
+
+- https://nvie.com/posts/a-successful-git-branching-model/
+- https://danielkummer.github.io/git-flow-cheatsheet/
+
