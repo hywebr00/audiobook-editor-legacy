@@ -66,3 +66,11 @@ MP3 Codec is built-in on macOS.
 - English (Official): https://www.w3.org/TR/audiobooks/
 - 中文版（台灣數位出版聯盟翻譯）：https://github.com/dpublishing/audiobooks-specs-tc
 - 有聲書範本（台灣數位出版聯盟製作）：https://github.com/dpublishing/audiobooks-samples
+
+- - -
+
+## Git工作模式 (Git Workflow)
+- Gitflow
+我們使用 Gitflow 管理此代碼庫，並據此與所有貢獻者及參與者合作!
+
+We are using Gitflow to manage this repository. Therefore, we are looking to collaborate on this project with all contributors/developers around the world.
