@@ -61,6 +61,8 @@ class StartingPanelWithOpenedList(QMainWindow):
         self.ui.label_5.installEventFilter(self)
         self.ui.label_6.installEventFilter(self)
 
+        self.ui.retranslateUi(self)
+
     def eventFilter(self, watched, event):
         if watched == self.ui.label_4:
             if event.type() == QEvent.MouseButtonPress:

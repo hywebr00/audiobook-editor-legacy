@@ -4,6 +4,7 @@ Created on Fri Jan  8 04:34:20 2021
 """
 
 import logging
+import platform
 from multipledispatch import dispatch
 import json
 import os
@@ -118,17 +119,22 @@ class MainWindow(QMainWindow):
         self.settings = QSettings()
         self.recentFilesOrDirectoriesInSettings = ''
 
+        app = QApplication.instance()
+
         self.ui.action_EN.triggered.connect(
             lambda: self.changeUILanguage('EN', self.ui.action_EN))
+        if app.ui_Language == 'EN':
+            self.changeUILanguage('EN', self.ui.action_EN)
         self.ui.action_TC.triggered.connect(
             lambda: self.changeUILanguage('TC', self.ui.action_TC))
+        if app.ui_Language == 'TC':
+            self.changeUILanguage('TC', self.ui.action_TC)
 
-        app = QApplication.instance()
-        for action in self.ui.menu_Language.actions():
-            if action.objectName() == 'action_' + app.ui_Language:
-                action.setChecked(True)
-            else:
-                action.setChecked(False)
+        # for action in self.ui.menu_Language.actions():
+        #     if action.objectName() == 'action_' + app.ui_Language:
+        #         action.setChecked(True)
+        #     else:
+        #         action.setChecked(False)
 
         self.updateSettings()
 
@@ -206,17 +212,22 @@ class MainWindow(QMainWindow):
         self.settings = QSettings()
         self.recentFilesOrDirectoriesInSettings = ''
 
+        app = QApplication.instance()
+
         self.ui.action_EN.triggered.connect(
             lambda: self.changeUILanguage('EN', self.ui.action_EN))
+        if app.ui_Language == 'EN':
+            self.changeUILanguage('EN', self.ui.action_EN)
         self.ui.action_TC.triggered.connect(
             lambda: self.changeUILanguage('TC', self.ui.action_TC))
+        if app.ui_Language == 'TC':
+            self.changeUILanguage('TC', self.ui.action_TC)
 
-        app = QApplication.instance()
-        for action in self.ui.menu_Language.actions():
-            if action.objectName() == 'action_' + app.ui_Language:
-                action.setChecked(True)
-            else:
-                action.setChecked(False)
+        # for action in self.ui.menu_Language.actions():
+        #     if action.objectName() == 'action_' + app.ui_Language:
+        #         action.setChecked(True)
+        #     else:
+        #         action.setChecked(False)
 
     @Slot()
     def on_action_Qt_triggered(self):
@@ -468,10 +479,17 @@ class MainWindow(QMainWindow):
 
         self.ui.retranslateUi(self)
 
-        settings = QSettings(app.organizationName(),
-                             app.applicationName())
+        # settings = None
+        # if platform.system() == "Darwin":
+        #     settings = QSettings()
+        # else:
+        #     settings = QSettings(app.organizationName(),
+        #                          app.applicationName())
 
-        settings.setValue('Language', lang)
+        # settings = QSettings(app.organizationName(),
+        #                      app.applicationName())
+
+        self.settings.setValue('Language', lang)
 
     def mousePressEvent(self, event):
         logging.debug('mousePressEvent')

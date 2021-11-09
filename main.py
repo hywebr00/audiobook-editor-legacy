@@ -5,6 +5,7 @@ Created on Thu Jan  7 21:18:02 2021
 
 import json
 import logging
+import platform
 from multipledispatch import dispatch
 import sys
 # import ctypes
@@ -267,8 +268,12 @@ if __name__ == "__main__":
     app.setApplicationName(APPLICATION_NAME)
     app.setApplicationVersion(APPLICATION_VERSION)
 
-    settings = QSettings(app.organizationName(),
-                         app.applicationName())
+    settings = None
+    if platform.system() == "Darwin":
+        settings = QSettings()
+    else:
+        settings = QSettings(app.organizationName(),
+                             app.applicationName())
 
     language = settings.value('Language', '')
     installerLanguage = settings.value('InstallerLanguage', '')
