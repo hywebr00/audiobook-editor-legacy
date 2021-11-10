@@ -6,6 +6,8 @@ Created on Thu Jan  7 21:40:51 2021
 import json
 import logging
 from multipledispatch import dispatch
+import os
+import platform
 
 from PySide2.QtCore import *
 from PySide2.QtGui import *
@@ -61,6 +63,22 @@ class StartingPanelWithOpenedList(QMainWindow):
         self.ui.label_5.installEventFilter(self)
         self.ui.label_6.installEventFilter(self)
 
+        if platform.system() == "Darwin":
+            logging.debug('changeUILanguage')
+            app = QApplication.instance()
+            translator = QTranslator()
+            try:
+                translator.load(
+                    os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Language/appLang_' + app.ui_Language + '.qm'))
+            except Exception as ex:
+                logging.error(ex)
+                translator.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Language/appLang_EN.qm'))
+                app.ui_Language = 'EN'
+
+            app.removeTranslator(app.ui_Translator)
+            app.installTranslator(translator)
+            app.ui_Translator = translator
+
         self.ui.retranslateUi(self)
 
     def eventFilter(self, watched, event):
@@ -85,6 +103,9 @@ class StartingPanelWithOpenedList(QMainWindow):
                     logging.debug("Label_6 is clicked!")
                     self.ui.pushButton_Open_Project.clicked.emit()
                     return True
+        # elif event.type() == QEvent.LanguageChange:
+        #     logging.debug("Language changed")
+        #     self.ui.retranslateUi(self)
 
         return super().eventFilter(watched, event)
 
