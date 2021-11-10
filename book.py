@@ -176,6 +176,7 @@ class Audiobook(QObject):
     @staticmethod
     @dispatch(dict)
     def getInstance(dict_New):
+        logging.debug('getInstance(dict_New)')
         if Audiobook._instance is None:
             Audiobook(dict_New)
         return Audiobook._instance
@@ -183,6 +184,7 @@ class Audiobook(QObject):
     @staticmethod
     @dispatch(str)
     def getInstance(item_Open):
+        logging.debug('getInstance(item_Open)')
         if Audiobook._instance is None:
             Audiobook(item_Open)
         return Audiobook._instance
@@ -190,8 +192,9 @@ class Audiobook(QObject):
     @staticmethod
     @dispatch()
     def getInstance():
+        logging.debug('getInstance()')
         if Audiobook._instance is None:
-            Audiobook({})
+            return None  # Audiobook({})
         return Audiobook._instance
 
     '''
@@ -388,6 +391,7 @@ class Audiobook(QObject):
 
     def __del__(self):
         logging.debug("Audiobook: del is called!")
+        Audiobook._instance = None
         pass
 
     def resetToOption_1(self):

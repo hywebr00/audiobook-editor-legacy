@@ -284,13 +284,24 @@ if __name__ == "__main__":
     else:
         language = 'EN'
 
-    translator = QTranslator()
+    translator = QTranslator(app)
+    translator_sys = QTranslator(app)
+
     try:
+        if language == 'TC':
+            translator_sys.load(
+                os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Language/qt_zh_TW.qm'))
+            app.installTranslator(translator_sys)
+
         translator.load(
             os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Language/appLang_' + language + '.qm'))
         app.ui_Language = language
     except Exception as ex:
         logging.error(ex)
+        translator_sys.load(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Language/qt_en.qm'))
+        app.installTranslator(translator_sys)
+
         translator.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Language/appLang_EN.qm'))
         app.ui_Language = 'EN'
 

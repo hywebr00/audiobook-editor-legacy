@@ -416,7 +416,10 @@ class MainWindow(QMainWindow):
                                '[' + ';'.join([json.dumps(o) for o in self.recentFilesOrDirectoriesInSettings]) + ']')
 
     def _open(self):
+        logging.debug("_open")
         self.updateSettings()
+        # Audiobook._instance = None
+        # del book
         self.signal_open.emit()
 
     def _close(self):
