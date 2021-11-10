@@ -108,7 +108,7 @@ class TOCListWidgetItem(QWidget):
         if event.type() == QEvent.LanguageChange:
             logging.debug("Language changed")
             book = Audiobook.getInstance()
-            if book isto None:
+            if book is None:
                 return
             self.ui.retranslateUi(self)
             self.ui.pushButton_Remove.setToolTip("<p style=\"color:#FFFFFF;font-family: Noto Sans;font-style: normal;"
