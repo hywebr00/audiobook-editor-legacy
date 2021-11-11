@@ -66,3 +66,10 @@ MP3 Codec is built-in on macOS.
 - English (Official): https://www.w3.org/TR/audiobooks/
 - 中文版（台灣數位出版聯盟翻譯）：https://github.com/dpublishing/audiobooks-specs-tc
 - 有聲書範本（台灣數位出版聯盟製作）：https://github.com/dpublishing/audiobooks-samples
+
+---
+macOS:
+This branch is for macOS, currently Monterey.
+1. QApplication translator seems not always globally applied, therefore some amendments are necessary for specific widgets.(Still under studying and amending)
+2. Destruction of the singleton object of Audiobook class needs corrections.(Still under re-desgining)
+
