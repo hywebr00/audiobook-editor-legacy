@@ -1,0 +1,27 @@
+{
+    "title": "Audiobook Editor",
+    "icon": "AudiobookEditorLogo.icns",
+    "icon-size": 120,
+    "background": "dmg-canvas.png",
+    "format": "UDZO",
+    "window": {
+        "size": {
+            "width": 600,
+            "height": 360
+        }
+    },
+    "contents": [
+        {
+            "x": 162,
+            "y": 172,
+            "type": "file",
+            "path": "AEditor.app"
+        },
+        {
+            "x": 438,
+            "y": 172,
+            "type": "link",
+            "path": "/Applications"
+        }
+    ]
+}
