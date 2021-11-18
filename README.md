@@ -46,7 +46,7 @@ This project use `PyInstaller` to produce the directory structure of production 
 The `AEditor.spec` file is for pyinstaller, just provided here to be a reference.
 
 #### macOS (developed on Big Sur)
-`PyInstaller` is still used under macOS to produce an executable .APP. The <a href="https://www.araelium.com/dmgcanvas">`DMG Canvas`</a> is used to make the final installer.
+`PyInstaller` is still used under macOS to produce an executable .APP. --The <a href="https://www.araelium.com/dmgcanvas">`DMG Canvas`</a> is used to make the final installer.-- The <a href="https://github.com/LinusU/node-appdmg">`appdmg`</a> is used to make the final executable installer.
 
 #### MP3 Codec/Backend
 - Windows
