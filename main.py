@@ -29,7 +29,7 @@ DISPLAY_ON_SCREEN = 1
 ORGANIZATION_NAME = "Hyweb Technology CO., LTD."
 ORGANIZATION_DOMAIN = "hyweb.com.tw"
 APPLICATION_NAME = "Audiobook Editor"
-APPLICATION_VERSION = "0.8.0.1"
+APPLICATION_VERSION = "0.8.0.2"
 
 
 class Controller(QObject):
@@ -61,6 +61,7 @@ class Controller(QObject):
 
     def show_StartingPanel(self):
         self.settings = QSettings()
+        logging.info(self.settings.fileName())
         self.recentFilesOrDirectoriesInSettings = self.settings.value('RecentlyOpenedFilesOrDirectories', '', type=str)
         logging.info(self.recentFilesOrDirectoriesInSettings)
         self.recentFilesOrDirectoriesInSettings = self.recentFilesOrDirectoriesInSettings[:-1]
@@ -271,6 +272,7 @@ if __name__ == "__main__":
     settings = None
     if platform.system() == "Darwin":
         settings = QSettings()
+        logging.info(settings.fileName())
     else:
         settings = QSettings(app.organizationName(),
                              app.applicationName())

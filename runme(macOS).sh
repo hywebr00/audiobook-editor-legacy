@@ -1,4 +1,4 @@
-pyinstaller -w -D -n AEditor \
+pyinstaller -w -D -n "Audiobook Editor" \
 -i AudiobookEditorLogo.icns \
 --add-data="Language/appLang_EN.qm:Language" \
 --add-data="Language/appLang_TC.qm:Language" \
@@ -9,3 +9,5 @@ pyinstaller -w -D -n AEditor \
 --add-data="Noto_Sans:Noto_Sans" \
 --add-data="audiobooks.schema.json:." \
 main.py
+
+## cp dist/info.plist dist/"Audiobook Editor.app"/Contents

@@ -135,6 +135,10 @@ class MainWindow(QMainWindow):
         #         action.setChecked(True)
         #     else:
         #         action.setChecked(False)
+        # if platform.system() == "Darwin" and app.ui_Language == 'EN':
+        #     self.ui.action_Exit.setVisible(True)
+        # else:
+        #     self.ui.action_Exit.setVisible(False)
 
         self.updateSettings()
 
@@ -228,6 +232,10 @@ class MainWindow(QMainWindow):
         #         action.setChecked(True)
         #     else:
         #         action.setChecked(False)
+        # if platform.system() == "Darwin" and app.ui_Language == 'EN':
+        #     self.ui.action_Exit.setVisible(True)
+        # else:
+        #     self.ui.action_Exit.setVisible(False)
 
     @Slot()
     def on_action_Qt_triggered(self):
@@ -423,6 +431,7 @@ class MainWindow(QMainWindow):
         self.signal_open.emit()
 
     def _close(self):
+        logging.debug("_close")
         self.book.on_action_Save_Audiobook_triggered()
         self.updateSettings()
         self.signal_close.emit()
@@ -492,7 +501,11 @@ class MainWindow(QMainWindow):
         # settings = QSettings(app.organizationName(),
         #                      app.applicationName())
 
-        self.settings.setValue('Language', lang)
+        # self.settings.setValue('Language', lang)
+        # if platform.system() == "Darwin" and app.ui_Language == 'EN':
+        #     self.ui.action_Exit.setVisible(True)
+        # else:
+        #     self.ui.action_Exit.setVisible(False)
 
     def mousePressEvent(self, event):
         logging.debug('mousePressEvent')
