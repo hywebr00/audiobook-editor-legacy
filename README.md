@@ -18,7 +18,7 @@ This project provides pre-built Windows binary files (macOS is on the way).
 ## 開發環境（Development Environments）
 
 ### 開發環境版本（Env. Versions）
-- Windows 10 x64 with Python 3.9.6
+- Windows 10 x64 with Python 3.9.7
 - PySide2 for the GUI.
 
 ### 套件與模組（Packages & Modules Used）
